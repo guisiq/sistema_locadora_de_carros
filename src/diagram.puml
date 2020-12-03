@@ -1,20 +1,22 @@
 @startuml cinema
 
 class carro{
-    id:interge 
-    nome:string
-    placa:string
-    dataDeaquisicao:date
-    ano:int
-    modelo:String
+   - id:interge 
+   - nome:string
+   - placa:string
+   - dataDeAquisicao:date
+   - ano:int
+   - modelo:String
 }
+' ok 
 enum cor{
-    PRETO 
-    VERMELHO
-    BRANCA
-    PRATA
+    -PRETO 
+    -VERMELHO
+    -BRANCO
+    -PRATA
 }
-
+'ok
+/'
 class carroEletrico{
     capacidadeBateria:float
     eficiencia
@@ -23,35 +25,40 @@ class carroAConbustao {
     
 }
 
+'/
 class locacao{
- idlocacao:int 
- datalocacao:date
- dataDevolucao:date
- calcularvalor():void
+    # idlocacao:int 
+    # datalocacao:date
+    # dataDevolucao:date
+    # calcularvalor():void
 }
+'ok
 class locacaodiaria{
-    valordadiaria:float   
-    quantidadeDias:int
-    calcularvalor():void
+    - valordadiaria:float   
+    - quantidadeDias:int
+    - calcularvalor():void
 }
+'ok
 class locacaoextendida{
-    quantidadeMeses : int
-    calcularvalor():void
+    - quantidadeMeses : int
+    - calcularvalor():void
 }
+'ok
 class cliente {
-    id:int
-    nome:String
-    cpf:String
-    email:String
+    - id:int
+    - nome:String
+    - cpf:String
+    - email:String
 }
 enum categoria {
-    BASICO
-    CONFORTO
-    PREIMIO
+    - BASICO
+    - CONFORTO
+    - PREIMIO
 }
+'ok
 class Telefone{
-    codicoDeArea:string
-    numero:string
+    -codicoDeArea:string
+    -numero:string
 }
 
 locacao<|--  locacaodiaria 
@@ -65,7 +72,7 @@ carro "1" --> "1"cor
 
 locacao "1" --> "1"carro
 
-cliente "1" --> "1"TipoCliente
+'cliente "1" --> "1"TipoCliente
 cliente "1" --> "2" Telefone
 cliente "1" --> "*" locacao
 
