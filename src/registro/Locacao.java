@@ -1,15 +1,17 @@
+package registro;
+
 import java.util.Date;
 
-public abstract class  Locacao {
-    protected int  idlocacao; 
-    protected Date datalocacao;
-    protected Date dataDevolucao;  
-    protected float valor;
-    protected float kilometragen;
+public abstract class Locacao {
+	protected int idlocacao;
+	protected Date datalocacao;
+	protected Date dataDevolucao;
+	protected float valor;
+	protected float kilometragen;
 
-    protected abstract void caucularValor();
-    
-    //#region getters e setters
+	protected abstract void caucularValor();
+
+	// #region getters e setters
 	public int getIdlocacao() {
 		return idlocacao;
 	}
@@ -49,5 +51,5 @@ public abstract class  Locacao {
 	public void setKilometragen(float kilometragen) {
 		this.kilometragen = kilometragen;
 	}
-    //#endregion    
+	// #endregion
 }

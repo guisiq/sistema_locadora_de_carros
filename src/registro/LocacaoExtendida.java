@@ -1,5 +1,7 @@
+package registro;
+
 public class LocacaoExtendida extends Locacao {
-    private float   valordadiaria;   
+    private float valordadiaria;
     private Integer quantidadeDias;
 
     @Override
@@ -7,8 +9,8 @@ public class LocacaoExtendida extends Locacao {
         // TODO Auto-generated method stub
 
     }
-    
-    //#region getters e setters
+
+    // #region getters e setters
     /**
      * @return float return the valordadiaria
      */
@@ -36,6 +38,6 @@ public class LocacaoExtendida extends Locacao {
     public void setQuantidadeDias(Integer quantidadeDias) {
         this.quantidadeDias = quantidadeDias;
     }
-    //#endregion
+    // #endregion
 
 }

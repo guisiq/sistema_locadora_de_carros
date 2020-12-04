@@ -1,5 +1,7 @@
-public class LocacaoDiaria extends Locacao{
-    private float   valordadiaria;   
+package registro;
+
+public class LocacaoDiaria extends Locacao {
+    private float valordadiaria;
     private Integer quantidadeDias;
 
     @Override
@@ -7,8 +9,8 @@ public class LocacaoDiaria extends Locacao{
         // TODO Auto-generated method stub
 
     }
-    
-    //#region getters e setters
+
+    // #region getters e setters
     /**
      * @return float return the valordadiaria
      */
@@ -36,5 +38,5 @@ public class LocacaoDiaria extends Locacao{
     public void setQuantidadeDias(Integer quantidadeDias) {
         this.quantidadeDias = quantidadeDias;
     }
-    //#endregion
+    // #endregion
 }

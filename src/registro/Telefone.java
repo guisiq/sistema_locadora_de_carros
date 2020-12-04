@@ -1,8 +1,10 @@
+package registro;
+
 public class Telefone {
-    private String codicoDeArea; 
+    private String codicoDeArea;
     private String numero;
-    
-    //#region getters e setters
+
+    // #region getters e setters
     public String getCodicoDeArea() {
         return codicoDeArea;
     }
@@ -18,6 +20,6 @@ public class Telefone {
     public void setNumero(String numero) {
         this.numero = numero;
     }
-    //#endregion
-    
+    // #endregion
+
 }

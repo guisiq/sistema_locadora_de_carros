@@ -1,17 +1,19 @@
+package registro;
+
 import java.util.Date;
 
 public class Carro {
-    
-    private Integer   id; 
-    private String    nome;
-    private String    placa;
-    private Date      dataDeaquisicao;
-    private int       ano;
-    private String    modelo;
-    private Cor       cor;    
-    private Categoria categoria; 
 
-    //#region getters e setters
+    private Integer id;
+    private String nome;
+    private String placa;
+    private Date dataDeaquisicao;
+    private int ano;
+    private String modelo;
+    private Cor cor;
+    private Categoria categoria;
+
+    // #region getters e setters
     /**
      * @return Integer return the id
      */
@@ -123,6 +125,6 @@ public class Carro {
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
-    //#endregion
+    // #endregion
 
 }
