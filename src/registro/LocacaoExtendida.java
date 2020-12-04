@@ -5,8 +5,8 @@ public class LocacaoExtendida extends Locacao {
     private Integer quantidadeDias;
 
     @Override
-    protected void caucularValor() {
-        // TODO Auto-generated method stub
+    protected void calcularValor() {
+        
 
     }
 

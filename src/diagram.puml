@@ -1,80 +1,80 @@
 @startuml cinema
 package "registro"{
-class carro{
-   - id:interge 
-   - nome:string
-   - placa:string
-   - dataDeAquisicao:date
-   - ano:int
-   - modelo:String
-}
-' ok 
-enum cor{
-    -PRETO 
-    -VERMELHO
-    -BRANCO
-    -PRATA
-}
-'ok
-/'
-class carroEletrico{
-    capacidadeBateria:float
-    eficiencia
-}
-class carroAConbustao {
-    
-}
+    class carro{
+    - id:integer 
+    - nome:string
+    - placa:string
+    - dataDeAquisicao:date
+    - ano:int
+    - modelo:String
+    }
+    ' ok 
+    enum cor{
+        -PRETO 
+        -VERMELHO
+        -BRANCO
+        -PRATA
+    }
+    'ok
+    /'
+    class carroEletrico{
+        capacidadeBateria:float
+        eficiencia
+    }
+    class carroAConbustao {
+        
+    }
 
-'/
-class locacao{
-    # idlocacao:int 
-    # datalocacao:date
-    # dataDevolucao:date
-    # calcularvalor():void
-}
-'ok
-class locacaodiaria{
-    - valordadiaria:float   
-    - quantidadeDias:int
-    - calcularvalor():void
-}
-'ok
-class locacaoextendida{
-    - quantidadeMeses : int
-    - calcularvalor():void
-}
-'ok
-class cliente {
-    - id:int
-    - nome:String
-    - cpf:String
-    - email:String
-}
-enum categoria {
-    - BASICO
-    - CONFORTO
-    - PREIMIO
-}
-'ok
-class Telefone{
-    -codicoDeArea:string
-    -numero:string
-}
+    '/
+    class locacao{
+        # idlocacao:int 
+        # datalocacao:date
+        # dataDevolucao:date
+        # calcularvalor():void
+    }
+    'ok
+    class locacaodiaria{
+        - valordadiaria:float   
+        - quantidadeDias:int
+        - calcularvalor():void
+    }
+    'ok
+    class locacaoextendida{
+        - quantidadeMeses : int
+        - calcularvalor():void
+    }
+    'ok
+    class cliente {
+        - id:int
+        - nome:String
+        - cpf:String
+        - email:String
+    }
+    enum categoria {
+        - BASICO
+        - CONFORTO
+        - PREIMIO
+    }
+    'ok
+    class Telefone{
+        -codicoDeArea:string
+        -numero:string
+    }
 
-locacao<|--  locacaodiaria 
-locacao<|--  locacaoextendida 
-carro<|--carroEletrico 
-carro<|--carroAConbustao 
-
-
-carro "1" --> "1"categoria
-carro "1" --> "1"cor
-
-locacao "1" --> "1"carro
+    locacao<|--  locacaodiaria 
+    locacao<|--  locacaoextendida 
+    carro<|--carroEletrico 
+    carro<|--carroAConbustao 
 
 
-cliente "1" --> "2" Telefone
-cliente "1" --> "*" locacao
+    carro "1" --> "1"categoria
+    carro "1" --> "1"cor
+
+    locacao "1" --> "1"carro
+
+
+    cliente "1" --> "2" Telefone
+    cliente "1" --> "*" locacao
 
 }
 

@@ -9,7 +9,7 @@ public abstract class Locacao {
 	protected float valor;
 	protected float kilometragen;
 
-	protected abstract void caucularValor();
+	protected abstract void calcularValor();
 
 	// #region getters e setters
 	public int getIdlocacao() {
