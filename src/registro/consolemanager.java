@@ -20,7 +20,7 @@ public interface ConsoleManager {
         return out;
     }
 
-    public void cadastro(boolean imprimir, Scanner leitor , int indentacao);
+    public void cadastro( Scanner leitor , int indentacao);
 
     public String impressao(boolean imprimir, int indentacao);
 

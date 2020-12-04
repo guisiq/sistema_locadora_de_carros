@@ -130,7 +130,7 @@ public class Carro implements ConsoleManager {
     // #region sobreescrita de metodos
 
     @Override
-    public void cadastro(boolean imprimir, Scanner leitor,int indentacao) {
+    public void cadastro(Scanner leitor,int indentacao) {
 
         System.out.print(ConsoleManager.indentar(indentacao));
         System.out.println("id:");
@@ -163,7 +163,7 @@ public class Carro implements ConsoleManager {
         
         System.out.print(ConsoleManager.indentar(indentacao));
         System.out.println("cor:");
-
+        this.cor = Cor.valueOf(leitor.nextInt());
         //return;
     }
 

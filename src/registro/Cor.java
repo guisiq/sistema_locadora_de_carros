@@ -9,7 +9,7 @@ public enum Cor {
         this.rgbCode = rgbCode;
     }
 
-    public Cor valueOf(int i ){
+    public static Cor valueOf(int i ){
         if(i > Cor.values().length){
             return Cor.values()[i];
         }
