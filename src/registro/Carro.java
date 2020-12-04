@@ -134,36 +134,37 @@ public class Carro implements ConsoleManager {
 
         System.out.print(ConsoleManager.indentar(indentacao));
         System.out.println("id:");
-        this.id = leitor.nextInt();
+        setId(leitor.nextInt());
         leitor.nextLine();
         
         System.out.print(ConsoleManager.indentar(indentacao));
         System.out.println("nome:");
-        this.nome = leitor.nextLine();
+        setNome(leitor.nextLine());
+        leitor.nextLine();
 
         System.out.print(ConsoleManager.indentar(indentacao));
         System.out.println("placa:");
-        this.placa = leitor.next();
+        setPlaca(leitor.next());
         leitor.nextLine();
         
         System.out.print(ConsoleManager.indentar(indentacao));
         System.out.println("data de aquisiçao:");
-        //this.dataDeaquisicao = leitor.next();
+        //setDataDeaquisicao(leitor.next());
         leitor.nextLine();
         
         System.out.print(ConsoleManager.indentar(indentacao));
         System.out.println("ano:");
-        this.ano= leitor.nextInt();
+        setAno(leitor.nextInt());
         leitor.nextLine();
         
         System.out.print(ConsoleManager.indentar(indentacao));
         System.out.println("modelo:");
-        this.modelo = leitor.next();
+        setModelo(leitor.next());
         leitor.nextLine();
         
         System.out.print(ConsoleManager.indentar(indentacao));
         System.out.println("cor:");
-        this.cor = Cor.valueOf(leitor.nextInt());
+        setCor(Cor.valueOf(leitor.nextInt()));
         //return;
     }
 
