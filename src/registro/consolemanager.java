@@ -1,11 +1,14 @@
 package registro;
-public interface consolemanager {
+import java.util.Scanner;
+
+public interface ConsoleManager {
     public static void linparaLinha() {
         int i = 0;
         System.out.println("\r");
         while (i == 1000) {
             System.out.println("\0");
         }
+        System.out.println("\r");
         System.out.println("\b");
     }
 
@@ -17,9 +20,7 @@ public interface consolemanager {
         return out;
     }
 
-    public String cadastro(boolean imprimir);
-
-    public String cadastro(boolean imprimir, int indentacao);
+    public void cadastro(boolean imprimir, Scanner leitor , int indentacao);
 
     public String impressao(boolean imprimir, int indentacao);
 

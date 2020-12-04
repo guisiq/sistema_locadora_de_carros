@@ -1,8 +1,9 @@
 package registro;
 
 import java.util.Date;
+import java.util.Scanner;
 
-public class Carro {
+public class Carro implements ConsoleManager {
 
     private Integer id;
     private String nome;
@@ -126,5 +127,57 @@ public class Carro {
         this.categoria = categoria;
     }
     // #endregion
+    // #region sobreescrita de metodos
 
+    @Override
+    public void cadastro(boolean imprimir, Scanner leitor,int indentacao) {
+
+        System.out.print(ConsoleManager.indentar(indentacao));
+        System.out.println("id:");
+        this.id = leitor.nextInt();
+        leitor.nextLine();
+        
+        System.out.print(ConsoleManager.indentar(indentacao));
+        System.out.println("nome:");
+        this.nome = leitor.nextLine();
+
+        System.out.print(ConsoleManager.indentar(indentacao));
+        System.out.println("placa:");
+        this.placa = leitor.next();
+        leitor.nextLine();
+        
+        System.out.print(ConsoleManager.indentar(indentacao));
+        System.out.println("data de aquisiçao:");
+        //this.dataDeaquisicao = leitor.next();
+        leitor.nextLine();
+        
+        System.out.print(ConsoleManager.indentar(indentacao));
+        System.out.println("ano:");
+        this.ano= leitor.nextInt();
+        leitor.nextLine();
+        
+        System.out.print(ConsoleManager.indentar(indentacao));
+        System.out.println("modelo:");
+        this.modelo = leitor.next();
+        leitor.nextLine();
+        
+        System.out.print(ConsoleManager.indentar(indentacao));
+        System.out.println("cor:");
+
+        //return;
+    }
+
+    @Override
+    public String impressao(boolean imprimir, int indentacao) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public String impressao(boolean imprimir) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+    
+    //#endregion
 }
