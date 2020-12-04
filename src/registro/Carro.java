@@ -169,15 +169,40 @@ public class Carro implements ConsoleManager {
     }
 
     @Override
-    public String impressao(boolean imprimir, int indentacao) {
-        // TODO Auto-generated method stub
-        return null;
+    public void impressao(int indentacao) {
+        String impressao = "";
+        String sIndentacao = ConsoleManager.indentar(indentacao);
+
+        /*
+        private Integer id;
+        private String nome;
+        private String placa;
+        private Date dataDeaquisicao;
+        private int ano;
+        private String modelo;
+        private Cor cor;
+        private Categoria categoria;*/
+        
+        impressao = sIndentacao + "Id                :"+this.getId()+"\n" ;
+        impressao = sIndentacao + "Nome              :"+this.getNome()+"\n" ;
+        impressao = sIndentacao + "Placa             :"+this.getPlaca()+"\n" ;
+        impressao = sIndentacao + "Data de aquisicao :"+this.getDataDeaquisicao()+"\n" ;
+        impressao = sIndentacao + "Ano               :"+this.getAno()+"\n" ;
+        impressao = sIndentacao + "modelo            :"+this.getModelo()+"\n" ;
+        impressao = sIndentacao + "cor               :"+this.getCor().name()+"\n" ;
+        impressao = sIndentacao + "categoria         :"+this.getCategoria().name()+"\n" ;
+        System.out.println(impressao);
     }
 
     @Override
-    public String impressao(boolean imprimir) {
-        // TODO Auto-generated method stub
-        return null;
+    public void impressao() {
+        impressao(0);
+    }
+
+    @Override
+    public String toString() {
+        return " Carro [ano=" + ano + ", categoria=" + categoria + ", cor=" + cor + ", dataDeaquisicao="
+                + dataDeaquisicao + ", id=" + id + ", modelo=" + modelo + ", nome=" + nome + ", placa=" + placa + "]";
     }
     
     //#endregion

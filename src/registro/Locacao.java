@@ -8,6 +8,8 @@ public abstract class Locacao {
 	protected Date dataDevolucao;
 	protected float valor;
 	protected float kilometragen;
+	protected Carro carro;
+
 
 	protected abstract void calcularValor();
 

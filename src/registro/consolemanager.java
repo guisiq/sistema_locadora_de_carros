@@ -22,7 +22,7 @@ public interface ConsoleManager {
 
     public void cadastro( Scanner leitor , int indentacao);
 
-    public String impressao(boolean imprimir, int indentacao);
+    public void impressao( int indentacao);
 
-    public String impressao(boolean imprimir);
+    public void impressao();
 }
