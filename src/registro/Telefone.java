@@ -3,16 +3,21 @@ package registro;
 import java.util.Scanner;
 
 public class Telefone implements ConsoleManager {
-    private String codicoDeArea;
+    private String codigoDeArea;
     private String numero;
 
-    // #region getters e setters
-    public String getCodicoDeArea() {
-        return codicoDeArea;
+    public Telefone(String codigoDeArea, String numero) {
+        this.codigoDeArea = codigoDeArea;
+        this.numero = numero;
     }
 
-    public void setCodicoDeArea(String codicoDeArea) {
-        this.codicoDeArea = codicoDeArea;
+    // #region getters e setters
+    public String getCodigoDeArea() {
+        return codigoDeArea;
+    }
+
+    public void setCodigoDeArea(String codigoDeArea) {
+        this.codigoDeArea = codigoDeArea;
     }
 
     public String getNumero() {
@@ -41,5 +46,7 @@ public class Telefone implements ConsoleManager {
         // TODO Auto-generated method stub
 
     }
+
+  
 
 }

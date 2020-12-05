@@ -30,7 +30,7 @@ public interface ConsoleManager {
             DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
             date = df.parse(s) ;
         } catch (Exception e) {
-            System.out.println(" ouve um erro inesperado ");
+            System.out.println("Houve um erro inesperado");
             
         }
         return date ;
