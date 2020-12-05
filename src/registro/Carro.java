@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Carro implements ConsoleManager {
 
     private Integer id;
-   // private String nome;
+    // private String nome;
     private String placa;
     private Date dataDeaquisicao;
     private int ano;
@@ -15,8 +15,7 @@ public class Carro implements ConsoleManager {
     private Categoria categoria;
 
     //#region construtores
-  public Carro(Integer id, String placa, Date dataDeaquisicao, int ano, String modelo, Cor cor,
-  Categoria categoria) {
+  public Carro(Integer id, String placa, Date dataDeaquisicao, int ano, String modelo, Cor cor, Categoria categoria) {
     this.id = id;
   //  this.nome = nome;
     this.placa = placa;
@@ -148,6 +147,7 @@ public class Carro implements ConsoleManager {
         System.out.print(ConsoleManager.indentar(indentacao));
         System.out.println("cor:");
         setCor(Cor.valueOf(leitor.nextInt()));
+        leitor.nextLine();
         //return;
     }
 
@@ -157,7 +157,7 @@ public class Carro implements ConsoleManager {
         String sIndentacao = ConsoleManager.indentar(indentacao);
         
         impressao = sIndentacao + "Id                :"+this.getId()+"\n" ;
-        impressao = sIndentacao + "Nome              :"+this.getNome()+"\n" ;
+        // impressao = sIndentacao + "Nome              :"+this.getNome()+"\n" ;
         impressao = sIndentacao + "Placa             :"+this.getPlaca()+"\n" ;
         impressao = sIndentacao + "Data de aquisicao :"+this.getDataDeaquisicao()+"\n" ;
         impressao = sIndentacao + "Ano               :"+this.getAno()+"\n" ;
@@ -175,7 +175,7 @@ public class Carro implements ConsoleManager {
     @Override
     public String toString() {
         return " Carro [ano=" + ano + ", categoria=" + categoria + ", cor=" + cor + ", dataDeaquisicao="
-                + dataDeaquisicao + ", id=" + id + ", modelo=" + modelo + ", nome=" + nome + ", placa=" + placa + "]";
+                + dataDeaquisicao + ", id=" + id + ", modelo=" + modelo + /*", nome=" + nome +*/  ", placa=" + placa + "]";
     }
     //#endregion
 
