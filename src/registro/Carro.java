@@ -127,37 +127,37 @@ public class Carro implements ConsoleManager {
     }
     // #endregion
     
-    // #region sobrescrita de metodos - impressão
+    // #region sobrescrita de metodos 
     @Override
     public void cadastro(Scanner leitor,int indentacao) {
 
         System.out.print(ConsoleManager.indentar(indentacao));
-        System.out.println("id:");
+        System.out.println("Informe o id do Cliente: ");
         setId(leitor.nextInt());
         leitor.nextLine();
         
         System.out.print(ConsoleManager.indentar(indentacao));
-        System.out.println("nome:");
+        System.out.println("Informe o nome do Cliente: ");
         setNome(leitor.nextLine());
         leitor.nextLine();
 
         System.out.print(ConsoleManager.indentar(indentacao));
-        System.out.println("placa:");
+        System.out.println("Informe a placa do Veículo: ");
         setPlaca(leitor.next());
         leitor.nextLine();
         
         System.out.print(ConsoleManager.indentar(indentacao));
-        System.out.println("data de aquisiçao:");
+        System.out.println("Informe a data de aquisiçao: ");
         //setDataDeaquisicao(leitor.next());
         leitor.nextLine();
         
         System.out.print(ConsoleManager.indentar(indentacao));
-        System.out.println("ano:");
+        System.out.println("Informe o ano de fabricação: ");
         setAno(leitor.nextInt());
         leitor.nextLine();
         
         System.out.print(ConsoleManager.indentar(indentacao));
-        System.out.println("modelo:");
+        System.out.println("Informe o modelo do veículo:");
         setModelo(leitor.next());
         leitor.nextLine();
         

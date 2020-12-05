@@ -44,7 +44,6 @@ public class Cliente implements ConsoleManager {
     //#endregion
 
     //#region metodos construtores 
-
     public Cliente(String id, String nome, String cpf, String email) {
 		this.id = id;
 		this.nome = nome;
@@ -58,10 +57,17 @@ public class Cliente implements ConsoleManager {
     @Override
 	public void cadastro(Scanner leitor, int indentacao) {
         // Captura de dados pessoais - CLiente da Locadora
+        System.out.print(ConsoleManager.indentar(indentacao));
+        System.out.println("id:");
+        setId(leitor.nextInt());
+        leitor.nextLine();
         
+        System.out.print(ConsoleManager.indentar(indentacao));
+        System.out.println("nome:");
+        setNome(leitor.nextLine());
+        leitor.nextLine();
 		
 	}
-
 	@Override
 	public void impressao(int indentacao) {
         /*
