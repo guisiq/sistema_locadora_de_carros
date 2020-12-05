@@ -1,4 +1,8 @@
 package registro;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public interface ConsoleManager {
@@ -18,6 +22,18 @@ public interface ConsoleManager {
             out.concat("\t");
         }
         return out;
+    }
+
+    public static Date lerdDate(String s ,Scanner leitor){
+        Date date = null;
+        try {
+            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+            date = df.parse(s) ;
+        } catch (Exception e) {
+            System.out.println(" ouve um erro inesperado ");
+            
+        }
+        return date ;
     }
 
     public void cadastro( Scanner leitor , int indentacao);
