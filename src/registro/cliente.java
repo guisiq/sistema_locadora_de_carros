@@ -7,6 +7,7 @@ public class Cliente implements ConsoleManager {
     private String nome;
     private String cpf;
     private String email;
+    private Telefone telefone;
 
     //#region metodos getters e seters
    
@@ -41,15 +42,23 @@ public class Cliente implements ConsoleManager {
     public void setEmail(String email) {
         this.email = email;
     }
+    public Telefone getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(Telefone telefone) {
+        this.telefone = telefone;
+    }
     //#endregion
 
     //#region metodos construtores
 
-    public Cliente(Integer id, String nome, String cpf, String email) {
+    public Cliente(Integer id, String nome, String cpf, String email, Telefone telefone) {
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
-		this.email = email;
+        this.email = email;
+        this.telefone = telefone;
     }
     //#endregion
     
@@ -79,6 +88,7 @@ public class Cliente implements ConsoleManager {
         System.out.println("Informe o email do Cliente: ");
         setEmail(leitor.nextLine());
         leitor.nextLine();
+
 	}
 	@Override
 	public void impressao(int indentacao) {
@@ -111,5 +121,6 @@ public class Cliente implements ConsoleManager {
 		return "Cliente [cpf=" + cpf + ", email=" + email + ", id=" + id + ", nome=" + nome + "]";
 	}
     //#endregion
+
     
 }
