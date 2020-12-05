@@ -69,14 +69,14 @@ public class Cliente implements ConsoleManager {
         private String cpf;
         private String email;
         */
-        String imprecao ;
+        String auxImpressao ;
         String sIndentacao = ConsoleManager.indentar(indentacao);
 
-        imprecao = sIndentacao + "Id      :"+this.getId()+"\n" ;
-        imprecao = sIndentacao + "nome    :"+this.getNome()+"\n" ;
-        imprecao = sIndentacao + "cpf     :"+this.getCpf()+"\n" ;
-        imprecao = sIndentacao + "email   :"+this.getEmail()+"\n" ;
-        System.out.printf(imprecao);
+        auxImpressao = sIndentacao + "Id      :"+this.getId()+"\n" ;
+        auxImpressao = sIndentacao + "nome    :"+this.getNome()+"\n" ;
+        auxImpressao = sIndentacao + "cpf     :"+this.getCpf()+"\n" ;
+        auxImpressao = sIndentacao + "email   :"+this.getEmail()+"\n" ;
+        System.out.printf(auxImpressao);
 	}
 
 	@Override
