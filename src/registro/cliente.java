@@ -57,7 +57,8 @@ public class Cliente implements ConsoleManager {
     
     @Override
 	public void cadastro(Scanner leitor, int indentacao) {
-		// TODO Auto-generated method stub
+        // Captura de dados pessoais - CLiente da Locadora
+        
 		
 	}
 

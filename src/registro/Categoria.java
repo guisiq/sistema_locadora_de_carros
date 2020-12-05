@@ -1,6 +1,6 @@
 package registro;
 public enum Categoria {
-    BASICO,
-    CONFORTO,
-    PREMIO;
+    POPULAR,
+    INTERMEDIÁRIO,
+    LUXO;
 }
