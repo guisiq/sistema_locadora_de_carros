@@ -14,6 +14,20 @@ public class Carro implements ConsoleManager {
     private Cor cor;
     private Categoria categoria;
 
+    //#region construtores
+  public Carro(Integer id, String nome, String placa, Date dataDeaquisicao, int ano, String modelo, Cor cor,
+  Categoria categoria) {
+    this.id = id;
+    this.nome = nome;
+    this.placa = placa;
+    this.dataDeaquisicao = dataDeaquisicao;
+    this.ano = ano;
+    this.modelo = modelo;
+    this.cor = cor;
+    this.categoria = categoria;
+}
+    //#endregion
+
     // #region getters e setters
     /**
      * @return Integer return the id
@@ -21,105 +35,90 @@ public class Carro implements ConsoleManager {
     public Integer getId() {
         return id;
     }
-
     /**
      * @param id the id to set
      */
     public void setId(Integer id) {
         this.id = id;
     }
-
     /**
      * @return String return the nome
      */
     public String getNome() {
         return nome;
     }
-
     /**
      * @param nome the nome to set
      */
     public void setNome(String nome) {
         this.nome = nome;
     }
-
     /**
      * @return String return the placa
      */
     public String getPlaca() {
         return placa;
     }
-
     /**
      * @param placa the placa to set
      */
     public void setPlaca(String placa) {
         this.placa = placa;
     }
-
     /**
      * @return Date return the dataDeaquisicao
      */
     public Date getDataDeaquisicao() {
         return dataDeaquisicao;
     }
-
     /**
      * @param dataDeaquisicao the dataDeaquisicao to set
      */
     public void setDataDeaquisicao(Date dataDeaquisicao) {
         this.dataDeaquisicao = dataDeaquisicao;
     }
-
     /**
      * @return int return the ano
      */
     public int getAno() {
         return ano;
     }
-
     /**
      * @param ano the ano to set
      */
     public void setAno(int ano) {
         this.ano = ano;
     }
-
     /**
      * @return String return the modelo
      */
     public String getModelo() {
         return modelo;
     }
-
     /**
      * @param modelo the modelo to set
      */
     public void setModelo(String modelo) {
         this.modelo = modelo;
     }
-
     /**
      * @return Cor return the cor
      */
     public Cor getCor() {
         return cor;
     }
-
     /**
      * @param cor the cor to set
      */
     public void setCor(Cor cor) {
         this.cor = cor;
     }
-
     /**
      * @return Categoria return the categoria
      */
     public Categoria getCategoria() {
         return categoria;
     }
-
     /**
      * @param categoria the categoria to set
      */
@@ -127,8 +126,8 @@ public class Carro implements ConsoleManager {
         this.categoria = categoria;
     }
     // #endregion
-    // #region sobreescrita de metodos
-
+    
+    // #region sobrescrita de metodos - impressão
     @Override
     public void cadastro(Scanner leitor,int indentacao) {
 
@@ -204,6 +203,10 @@ public class Carro implements ConsoleManager {
         return " Carro [ano=" + ano + ", categoria=" + categoria + ", cor=" + cor + ", dataDeaquisicao="
                 + dataDeaquisicao + ", id=" + id + ", modelo=" + modelo + ", nome=" + nome + ", placa=" + placa + "]";
     }
-    
     //#endregion
+
+  
+
+
+
 }
