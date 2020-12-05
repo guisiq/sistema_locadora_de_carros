@@ -57,16 +57,26 @@ public class Cliente implements ConsoleManager {
     @Override
 	public void cadastro(Scanner leitor, int indentacao) {
         // Captura de dados pessoais - CLiente da Locadora
-        System.out.print(ConsoleManager.indentar(indentacao));
-        System.out.println("id:");
+       
+       /* System.out.print(ConsoleManager.indentar(indentacao));
+        System.out.println("Informe o id do Cliente: ");
         setId(leitor.nextInt());
+        leitor.nextLine(); */
+
+        System.out.print(ConsoleManager.indentar(indentacao));
+        System.out.println("Informe o Nome do Cliente: ");
+        setNome(leitor.nextLine());
+        leitor.nextLine();
+
+        System.out.print(ConsoleManager.indentar(indentacao));
+        System.out.println("Informe o CPF do Cliente: ");
+        setCpf(leitor.nextLine());
         leitor.nextLine();
         
         System.out.print(ConsoleManager.indentar(indentacao));
-        System.out.println("nome:");
-        setNome(leitor.nextLine());
+        System.out.println("Informe o email do Cliente: ");
+        setEmail(leitor.nextLine());
         leitor.nextLine();
-		
 	}
 	@Override
 	public void impressao(int indentacao) {
