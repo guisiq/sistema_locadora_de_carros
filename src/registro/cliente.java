@@ -3,18 +3,18 @@ package registro;
 import java.util.Scanner;
 
 public class Cliente implements ConsoleManager {
-    private String id;
+    private int id;
     private String nome;
     private String cpf;
     private String email;
 
     //#region metodos getters e seters
    
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -45,7 +45,7 @@ public class Cliente implements ConsoleManager {
 
     //#region metodos construtores
 
-    public Cliente(String id, String nome, String cpf, String email) {
+    public Cliente(Integer id, String nome, String cpf, String email) {
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;

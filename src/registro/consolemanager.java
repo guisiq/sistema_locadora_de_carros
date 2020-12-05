@@ -1,11 +1,11 @@
 package registro;
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
 public interface ConsoleManager {
+   
     public static void linparaLinha() {
         int i = 0;
         System.out.println("\r");
