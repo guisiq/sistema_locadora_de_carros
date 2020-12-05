@@ -1,6 +1,8 @@
 package registro;
 
-public class Telefone {
+import java.util.Scanner;
+
+public class Telefone implements ConsoleManager {
     private String codicoDeArea;
     private String numero;
 
@@ -21,5 +23,23 @@ public class Telefone {
         this.numero = numero;
     }
     // #endregion
+
+    @Override
+    public void cadastro(Scanner leitor, int indentacao) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void impressao(int indentacao) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void impressao() {
+        // TODO Auto-generated method stub
+
+    }
 
 }

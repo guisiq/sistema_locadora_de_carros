@@ -53,7 +53,7 @@ public class Cliente implements ConsoleManager {
     //#endregion
     
     //#region sobrescrita de metodos 
-    
+    //#region consolemenager 
     @Override
 	public void cadastro(Scanner leitor, int indentacao) {
         // Captura de dados pessoais - CLiente da Locadora
@@ -99,9 +99,12 @@ public class Cliente implements ConsoleManager {
 	@Override
 	public void impressao() {
         this.impressao(0);
-	}
-
-	@Override
+    }
+    
+    //#endregion
+    
+    
+    @Override
 	public String toString() {
 		return "Cliente [cpf=" + cpf + ", email=" + email + ", id=" + id + ", nome=" + nome + "]";
 	}

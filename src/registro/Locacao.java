@@ -2,7 +2,7 @@ package registro;
 
 import java.util.Date;
 
-public abstract class Locacao {
+public abstract class Locacao implements ConsoleManager{
 	protected int idlocacao;
 	protected Date datalocacao;
 	protected Date dataDevolucao;

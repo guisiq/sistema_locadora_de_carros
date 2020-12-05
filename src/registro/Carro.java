@@ -155,16 +155,6 @@ public class Carro implements ConsoleManager {
     public void impressao(int indentacao) {
         String impressao = "";
         String sIndentacao = ConsoleManager.indentar(indentacao);
-
-        /*
-        private Integer id;
-        private String nome;
-        private String placa;
-        private Date dataDeaquisicao;
-        private int ano;
-        private String modelo;
-        private Cor cor;
-        private Categoria categoria;*/
         
         impressao = sIndentacao + "Id                :"+this.getId()+"\n" ;
         impressao = sIndentacao + "Nome              :"+this.getNome()+"\n" ;

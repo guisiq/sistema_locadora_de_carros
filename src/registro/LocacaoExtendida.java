@@ -1,14 +1,11 @@
 package registro;
 
+import java.util.Scanner;
+
 public class LocacaoExtendida extends Locacao {
     private float valordadiaria;
     private Integer quantidadeDias;
 
-    @Override
-    protected void calcularValor() {
-        
-
-    }
 
     // #region getters e setters
     /**
@@ -39,5 +36,28 @@ public class LocacaoExtendida extends Locacao {
         this.quantidadeDias = quantidadeDias;
     }
     // #endregion
+
+    @Override
+    protected void calcularValor() {
+
+    }
+
+    @Override
+    public void cadastro(Scanner leitor, int indentacao) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void impressao(int indentacao) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void impressao() {
+        // TODO Auto-generated method stub
+
+    }
 
 }
