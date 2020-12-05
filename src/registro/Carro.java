@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Carro implements ConsoleManager {
 
     private Integer id;
-    private String nome;
+   // private String nome;
     private String placa;
     private Date dataDeaquisicao;
     private int ano;
@@ -15,10 +15,10 @@ public class Carro implements ConsoleManager {
     private Categoria categoria;
 
     //#region construtores
-  public Carro(Integer id, String nome, String placa, Date dataDeaquisicao, int ano, String modelo, Cor cor,
+  public Carro(Integer id, String placa, Date dataDeaquisicao, int ano, String modelo, Cor cor,
   Categoria categoria) {
     this.id = id;
-    this.nome = nome;
+  //  this.nome = nome;
     this.placa = placa;
     this.dataDeaquisicao = dataDeaquisicao;
     this.ano = ano;
@@ -41,18 +41,7 @@ public class Carro implements ConsoleManager {
     public void setId(Integer id) {
         this.id = id;
     }
-    /**
-     * @return String return the nome
-     */
-    public String getNome() {
-        return nome;
-    }
-    /**
-     * @param nome the nome to set
-     */
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+     
     /**
      * @return String return the placa
      */
@@ -132,15 +121,10 @@ public class Carro implements ConsoleManager {
     public void cadastro(Scanner leitor,int indentacao) {
 
         System.out.print(ConsoleManager.indentar(indentacao));
-        System.out.println("Informe o id do Cliente: ");
+        System.out.println("Informe o id do Veículo: ");
         setId(leitor.nextInt());
         leitor.nextLine();
-        
-        System.out.print(ConsoleManager.indentar(indentacao));
-        System.out.println("Informe o nome do Cliente: ");
-        setNome(leitor.nextLine());
-        leitor.nextLine();
-
+    
         System.out.print(ConsoleManager.indentar(indentacao));
         System.out.println("Informe a placa do Veículo: ");
         setPlaca(leitor.next());
