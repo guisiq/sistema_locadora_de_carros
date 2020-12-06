@@ -103,7 +103,7 @@ public class Cliente implements ConsoleManager {
         System.out.println("Informe o email do Cliente: ");
         setEmail(leitor.nextLine());
         leitor.nextLine();
-
+        Telefone.cadastro();
 	}
 	@Override
 	public void impressao(int indentacao) {
