@@ -57,13 +57,14 @@ public class LocacaoDiaria extends Locacao {
             //protected float valor;
             protected float kilometragen;
             protected Carro carro;
+        */ 
+        
+        
+        /**    
             private float valordadiaria;
             private Integer quantidadeDias;
         */
-        System.out.print(ConsoleManager.indentar(indentacao));
-        System.out.println("data locação:");
-        
-        leitor.nextLine();
+
 
     }
 

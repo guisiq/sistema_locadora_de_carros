@@ -54,4 +54,7 @@ public abstract class Locacao implements ConsoleManager{
 		this.kilometragen = kilometragen;
 	}
 	// #endregion
+
+	public Locacao() {
+	}
 }

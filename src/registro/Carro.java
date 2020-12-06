@@ -28,6 +28,7 @@ public class Carro implements ConsoleManager {
     //#endregion
 
     // #region getters e setters
+
     /**
      * @return Integer return the id
      */
@@ -146,7 +147,14 @@ public class Carro implements ConsoleManager {
         
         System.out.print(ConsoleManager.indentar(indentacao));
         System.out.println("cor:");
+        Cor.imprimir( indentacao + 1);
         setCor(Cor.valueOf(leitor.nextInt()));
+        leitor.nextLine();
+
+        System.out.print(ConsoleManager.indentar(indentacao));
+        System.out.println("categoria:");
+        Categoria.imprimir(indentacao + 1);
+        this.setCategoria(Categoria.valueOf(leitor.nextInt()));
         leitor.nextLine();
         //return;
     }

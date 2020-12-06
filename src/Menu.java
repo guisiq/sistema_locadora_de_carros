@@ -1,5 +1,6 @@
 import registro.*;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Scanner;
 public  class Menu {
     //#region comparetor carro
@@ -94,39 +95,58 @@ public  class Menu {
     //#endregion
     //#region menu e login ciente
 
-    public static boolean loginCiente(String login , String senha ) {
-        boolean islogin;
+    public static boolean loginCiente(String login , String senha ,Scanner leitor) {
         for (int j = 0; j < Registro.lClientes.size(); j++) {
-            if( Registro.lClientes.get(j).getUsuario().getLogin() == login &&
-                Registro.lClientes.get(j).getUsuario().getSenha() == senha){
+            Cliente cliente = Registro.lClientes.get(j);
+            if( Registro.lClientes.get(j).getUsuario().getLogin().equals(login) &&
+                Registro.lClientes.get(j).getUsuario().getSenha().equals(senha)){
                     System.out.println(" Acesso iberado ");
-                    menuCiente(j);
+                    menuCiente(j,leitor);
                     return true;
             }
         }
         return false;
     }
-    
-    public static void menuCiente (int indece  ) {
-        Scanner leitor = new Scanner(System.in);
+    public static void menuCiente (int id ,Scanner leitor  ) {
         int opcao;
         String out = "";
         
-        out += "  ╔═╦═╗        \n      ╔╗  \n ╔═╗ ╔╗    ╔╗  ╔═╗ \n ";
-        out += "  ║║║║╠═╦═╦╦╦╗ \n     ╔╝╠═╗\n ║╔╬╗╠╬═╦═╦╣╚╦═╣═╣ \n ";
-        out += "  ║║║║║╩╣║║║║║ \n     ║╬║╩╣\n ║╚╣╚╣║╩╣║║║╔╣╩╬═║ \n ";
-        out += "  ╚╩═╩╩═╩╩═╩═╝ \n     ╚═╩═╝\n ╚═╩═╩╩═╩╩═╩═╩═╩═╝ \n ";
+        out += "  ╔═╦═╗           ╔╗   ╔═╗ ╔╗    ╔╗  ╔═╗ \n ";
+        out += "  ║║║║╠═╦═╦╦╦╗   ╔╝╠═╗ ║╔╬╗╠╬═╦═╦╣╚╦═╣═╣ \n ";
+        out += "  ║║║║║╩╣║║║║║   ║╬║╩╣ ║╚╣╚╣║╩╣║║║╔╣╩╬═║ \n ";
+        out += "  ╚╩═╩╩═╩╩═╩═╝   ╚═╩═╝ ╚═╩═╩╩═╩╩═╩═╩═╩═╝ \n ";
         out += "\n";
         out += "1-istar suas locacoes\n";
-        out += "2-addicionar uma locacao\n  ";
-        out += "3-altera sus dados \n  ";
-        out += "4-sair\n  ";
+        out += "2-addicionar uma locacao diaria\n";
+        out += "3-addicionar uma locacao extendida\n";
+        out += "4-altera sus dados \n";
+        out += "5-sair\n";
         do {
             System.out.print(out);
             opcao = leitor.nextInt();
             leitor.nextLine();
             ConsoleManager.linparConsole();
-        } while (opcao != 4);
+            switch (opcao) {
+                case 1:
+                    Menu.listarLocacoesDeUmCliente(0, id , null );
+                    break;
+                
+                case 2:
+                //tem que ve se isso funciona 
+                    LocacaoDiaria aux = new LocacaoDiaria();
+                    Registro.lLocacoes.add(aux);
+                    Registro.lClientes.get(id).getListLocacao().add(Registro.lLocacoes.get( Registro.lLocacoes.size()-1 ));
+                    aux.cadastro(leitor, 0);
+                    //List<Locacao> aux2 = Registro.lClientes.get(id).getListLocacao();
+                    // aux2.add(aux);
+                    // Registro.lClientes.get(id).setListLocacao(aux2);
+                    
+                    break;
+                
+                default:
+                    break;
+            }
+        } while (opcao != 5);
     }
     //#endregion
     public static boolean loginAdm(String login , String senha ){
@@ -137,32 +157,59 @@ public  class Menu {
     }
     //#endregion
     public static void main(String[] args) {
-        Scanner leitor = new Scanner(System.in); 
         System.out.print("█   █▀▀█ █▀▀ █▀▀█ █▀▀▄ █▀▀█ █▀▀█ █▀▀█     █▀▀▄ █▀▀     █▀▀ █▀▀█ █▀▀█ █▀▀█ █▀▀█ █▀▀\n");
         System.out.print("█   █  █ █   █▄▄█ █  █ █  █ █▄▄▀ █▄▄█     █  █ █▀▀     █   █▄▄█ █▄▄▀ █▄▄▀ █  █ ▀▀█\n");
         System.out.print("▀▀▀ ▀▀▀▀ ▀▀▀ ▀  ▀ ▀▀▀  ▀▀▀▀ ▀ ▀▀ ▀  ▀     ▀▀▀  ▀▀▀     ▀▀▀ ▀  ▀ ▀ ▀▀ ▀ ▀▀ ▀▀▀▀ ▀▀▀\n");
-
-        System.out.print("╔╗           ╔╗           ╔╗   \n" );
-        System.out.print("║║           ║║           ║║   \n" );
+        
+        System.out.print("╔╗           ╔╗           ╔╗                     \n" );
+        System.out.print("║║           ║║           ║║                     \n" );
         System.out.print("║║╔══╦══╦══╦═╝╠══╦═╦══╗ ╔═╝╠══╗ ╔══╦══╦═╦═╦══╦══╗\n");
         System.out.print("║║║╔╗║╔═╣╔╗║╔╗║╔╗║╔╣╔╗║ ║╔╗║║═╣ ║╔═╣╔╗║╔╣╔╣╔╗║══╣\n");
         System.out.print("║╚╣╚╝║╚═╣╔╗║╚╝║╚╝║║║╔╗║ ║╚╝║║═╣ ║╚═╣╔╗║║║║║╚╝╠══║\n");
-        System.out.print("╚═╩══╩══╩╝╚╩══╩══╩╝╚╝╚╝ ╚══╩══╝ ╚══╩╝╚╩╝╚╝╚══╩══╝\n");        
+        System.out.print("╚═╩══╩══╩╝╚╩══╩══╩╝╚╝╚╝ ╚══╩══╝ ╚══╩╝╚╩╝╚╝╚══╩══╝\n");   
+        String andar="";
+        /*
+        for (int i = 0; i < 40; i++) {
+            try {
+                Thread.sleep(90);
+                ConsoleManager.linparConsole();
+                andar += " ";
+                System.out.println(andar + "  ______      ");
+                System.out.println(andar + " /|_||_\\`.__ ");
+                System.out.println(andar + "(   _    _ _\\");
+                System.out.println(andar + "=`-(_)--(_)-' ");
+            } catch (Exception e) {
+                
+            }
+        }
+        */
+        /**
+         ______        a
+         /|_||_\`.__    a
+         (   _    _ _\   a
+         =`-(_)--(_)-'   a
+         
+         __
+         .-'--`-._
+         '-O---O--'
+         */     
+        ConsoleManager.linparConsole();
         boolean continuar = true;
+        Scanner leitor = new Scanner(System.in); 
         do {
             
             String login ;
             String senha ;
             
             System.out.print("digite o seu login :");
-            login = leitor.next();
-            System.out.println();
+            login = leitor.nextLine();
             
             System.out.print("digite o sua senha :");
             senha = leitor.next();
-            System.out.println();
+            leitor.nextLine();
+
             ConsoleManager.linparConsole();
-            boolean isLogin =  loginCiente(login , senha ); 
+            boolean isLogin =  loginCiente(login , senha ,leitor ); 
 
             if(!isLogin){
                 isLogin = Menu.loginAdm(login, senha);
@@ -170,14 +217,16 @@ public  class Menu {
             if(!isLogin){
                 System.out.println("logim ou senha errados ");
                 System.out.println("digite [1]para tentar nvamente ");
+                System.out.println("digite qualquer outra tecla parra sair  ");
                 continuar = (leitor.nextInt() == 1);
+                leitor.nextLine();
             }else{
                 continuar = false ;
             }
             
             
-            System.out.println("fim do progama ");
-            leitor.nextInt();
         } while (continuar);
+
+        System.out.println("fim do progama ");
     }
 }
