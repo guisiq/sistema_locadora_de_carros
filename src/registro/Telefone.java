@@ -10,6 +10,8 @@ public class Telefone implements ConsoleManager {
         this.codigoDeArea = codigoDeArea;
         this.numero = numero;
     }
+    public Telefone() {
+    }
 
     // #region getters e setters
     public String getCodigoDeArea() {
@@ -46,6 +48,8 @@ public class Telefone implements ConsoleManager {
         // TODO Auto-generated method stub
 
     }
+
+   
 
   
 

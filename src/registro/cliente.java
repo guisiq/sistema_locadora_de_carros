@@ -115,7 +115,8 @@ public class Cliente implements ConsoleManager {
         System.out.println("Informe o email do Cliente: ");
         setEmail(leitor.nextLine());
         leitor.nextLine();
-        Telefone.cadastro();
+        this.setTelefone(new Telefone());
+        this.getTelefone().cadastro(leitor,indentacao+1);
 	}
 	@Override
 	public void impressao(int indentacao) {
