@@ -15,17 +15,20 @@ public abstract class Registro {
         new Carro(5, "MZS9310", new Date(2005,10,5) ,2008, "MARRU", Cor.PRATA,Categoria.INTERMEDIÁRIO),
     }));
 
-public static List<Cliente> lClientes = new ArrayList<Cliente>(Arrays.asList(new Cliente[]{
-        new Cliente(1, "Thales Mateus Kaique Cardoso", "07794037891","thalesmateuskaiquecardoso..thalesmateuskaiquecardoso@outloock.com"),
-        new Cliente(2, "Luan Matheus João Barros", "49006244627","lluanmatheusjoaobarros@wizardsjc.com.br"),
+    public static List<Cliente> lClientes = new ArrayList<Cliente>(Arrays.asList(new Cliente[]{
+        new Cliente(1, "Thales Mateus Kaique Cardoso", "07794037891","thalesmateuskaiquecardoso..thalesmateuskaiquecardoso@outloock.com",new Telefone("82","992561483")),
+        new Cliente(2, "Luan Matheus João Barros", "49006244627","lluanmatheusjoaobarros@wizardsjc.com.br",new Telefone("27","983729202"))/*,
         new Cliente(3, "Débora Benedita Elisa da Rocha", "11183004249","ddeborabeneditaelisadarocha@modus.com.br"),
         new Cliente(4, "Luzia Luna Nunes", "57148219205","luzialunanunes__luzialunanunes@arosacampinas.com.br"),
         new Cliente(1, "Mário Rodrigo Ryan Jesus", "95072767930","mariorodrigoryanjesus_@trietto.com.br"),
         new Cliente(1, "Sara Isadora Aparício", "84883733335","saraisadoraaparicio..saraisadoraaparicio@holtmail.com"),
         new Cliente(1, "Yuri Luan Fernandes", "82162188937","yuriluanfernandes..yuriluanfernandes@lonax.net"),
-        new Cliente(1, "Alice Maria Porto", "46537485606","alicemariaporto..alicemariaporto@compecia.com.br")
+        new Cliente(1, "Alice Maria Porto", "46537485606","alicemariaporto..alicemariaporto@compecia.com.br")*/
     }));
- 
-    public static void init(){
-    }
+    public static List<Locacao> lLocacoes = new ArrayList<Locacao>(Arrays.asList(new Locacao[]{
+        //new LocacaoDiaria();
+        new LocacaoDiaria(),
+        null,
+        null
+    }));
 }
