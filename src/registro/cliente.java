@@ -87,6 +87,9 @@ public class Cliente implements ConsoleManager {
         this.telefone = telefone;
         this.usuario = new Usuario(nome , cpf, Acesso.CLIENTE );
     }
+    public Cliente(){
+
+    }
     //#endregion
     
     //#region sobrescrita de metodos 
@@ -96,10 +99,10 @@ public class Cliente implements ConsoleManager {
 	public void cadastro(Scanner leitor, int indentacao) {
         // Captura de dados pessoais - CLiente da Locadora
        
-       /* System.out.print(ConsoleManager.indentar(indentacao));
+        System.out.print(ConsoleManager.indentar(indentacao));
         System.out.println("Informe o id do Cliente: ");
         setId(leitor.nextInt());
-        leitor.nextLine(); */
+        leitor.nextLine(); 
 
         System.out.print(ConsoleManager.indentar(indentacao));
         System.out.println("Informe o Nome do Cliente: ");
@@ -115,17 +118,15 @@ public class Cliente implements ConsoleManager {
         System.out.println("Informe o email do Cliente: ");
         setEmail(leitor.nextLine());
         leitor.nextLine();
+
         this.setTelefone(new Telefone());
         this.getTelefone().cadastro(leitor,indentacao+1);
-	}
+        
+        this.usuario = new Usuario(nome , cpf, Acesso.CLIENTE );
+    
+    }
 	@Override
 	public void impressao(int indentacao) {
-        /*
-        private String id;
-        private String nome;
-        private String cpf;
-        private String email;
-        */
         String auxImpressao ;
         String sIndentacao = ConsoleManager.indentar(indentacao);
 

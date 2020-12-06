@@ -1,5 +1,18 @@
 @startuml cinema
 package "registro"{
+    
+    enum acesso{
+            ADM 
+            CLIENTE 
+    }
+
+    class usuario{
+        
+
+        login:String
+        senha:String
+        acesso:Acesso
+    }
     class carro{
     - id:integer 
     - nome:string
@@ -63,12 +76,13 @@ package "registro"{
 
     locacao<|--  locacaodiaria 
     locacao<|--  locacaoextendida 
-    carro<|--carroEletrico 
-    carro<|--carroAConbustao 
 
 
     carro "1" --> "1"categoria
     carro "1" --> "1"cor
+
+    usuario "1" o--> "1" acesso
+    cliente "1" --> "1"usuario
 
     locacao "1" --> "1"carro
 
