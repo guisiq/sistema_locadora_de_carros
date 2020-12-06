@@ -9,7 +9,7 @@ public class Usuario {
 	private String senha;
 	private Acesso acesso;
 
-	private static Usuario usuario = new Usuario("root", "admlogin", Acesso.ADM);
+	// private static Usuario usuario = new Usuario("root", "admlogin", Acesso.ADM);
 	// private static Usuario usuario1 = new Usuario("client", "01234", Acesso.ADM);
 
 	public Usuario(String login, String senha, Usuario.Acesso acesso) {
