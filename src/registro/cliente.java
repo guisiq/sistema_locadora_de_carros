@@ -52,6 +52,14 @@ public class Cliente implements ConsoleManager {
     public void setTelefone(Telefone telefone) {
         this.telefone = telefone;
     }
+    public List<Locacao> getListLocacao() {
+		return listLocacao;
+	}
+
+	public void setListLocacao(List<Locacao> listLocacao) {
+		this.listLocacao = listLocacao;
+    }
+    
     //#endregion
 
     //#region metodos construtores
