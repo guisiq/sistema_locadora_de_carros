@@ -3,6 +3,8 @@ package registro;
 import java.util.List;
 import java.util.Scanner;
 
+import registro.Usuario.Acesso;
+
 public class Cliente implements ConsoleManager {
     private int id;
     private String nome;
@@ -10,6 +12,7 @@ public class Cliente implements ConsoleManager {
     private String email;
     private Telefone telefone;
     private List<Locacao> listLocacao;
+    private Usuario usuario ;
 
 
     //#region metodos getters e seters
@@ -70,6 +73,7 @@ public class Cliente implements ConsoleManager {
 		this.cpf = cpf;
         this.email = email;
         this.telefone = telefone;
+        this.usuario = new Usuario(nome , cpf, Acesso.CLIENTE );
     }
     //#endregion
     
