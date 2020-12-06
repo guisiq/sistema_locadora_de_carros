@@ -6,18 +6,8 @@ import java.util.Scanner;
 
 public interface ConsoleManager {
    
-    public static void linparaLinhas(int quantLinhas) {
-        for (int e = 0; e < quantLinhas; e++) {
-            
-            int i = 0;
-            System.out.println("\r");
-            while (i == 1000) {
-                System.out.println("\0");
-            }
-            System.out.println("\r");
-            System.out.println("\b");
-            
-        }
+    public static void linparConsole() {
+        System.out.print("\033[H\033[2J");
     }
 
     public static String indentar(int indentacao) {

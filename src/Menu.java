@@ -1,7 +1,7 @@
 import registro.*;
 import java.util.Comparator;
 import java.util.Scanner;
-public abstract class Menu {
+public  class Menu {
     //#region comparetor carro
     /**    
     private Integer id;
@@ -90,18 +90,94 @@ public abstract class Menu {
             }
         });
     }
+    
+    //#endregion
+    //#region menu e login ciente
+
+    public static boolean loginCiente(String login , String senha ) {
+        boolean islogin;
+        for (int j = 0; j < Registro.lClientes.size(); j++) {
+            if( Registro.lClientes.get(j).getUsuario().getLogin() == login &&
+                Registro.lClientes.get(j).getUsuario().getSenha() == senha){
+                    System.out.println(" Acesso iberado ");
+                    menuCiente(j);
+                    return true;
+            }
+        }
+        return false;
+    }
+    
+    public static void menuCiente (int indece  ) {
+        Scanner leitor = new Scanner(System.in);
+        int opcao;
+        String out = "";
+        
+        out += "  ╔═╦═╗        \n      ╔╗  \n ╔═╗ ╔╗    ╔╗  ╔═╗ \n ";
+        out += "  ║║║║╠═╦═╦╦╦╗ \n     ╔╝╠═╗\n ║╔╬╗╠╬═╦═╦╣╚╦═╣═╣ \n ";
+        out += "  ║║║║║╩╣║║║║║ \n     ║╬║╩╣\n ║╚╣╚╣║╩╣║║║╔╣╩╬═║ \n ";
+        out += "  ╚╩═╩╩═╩╩═╩═╝ \n     ╚═╩═╝\n ╚═╩═╩╩═╩╩═╩═╩═╩═╝ \n ";
+        out += "\n";
+        out += "1-istar suas locacoes\n";
+        out += "2-addicionar uma locacao\n  ";
+        out += "3-altera sus dados \n  ";
+        out += "4-sair\n  ";
+        do {
+            System.out.print(out);
+            opcao = leitor.nextInt();
+            leitor.nextLine();
+            ConsoleManager.linparConsole();
+        } while (opcao != 4);
+    }
+    //#endregion
+    public static boolean loginAdm(String login , String senha ){
+        return false;
+    }
+    public static void menuAdm () {
+        
+    }
     //#endregion
     public static void main(String[] args) {
-       Scanner leitor = new Scanner(System.in); 
-       System.out.println("locacora de carros ");
-       System.out.println("digite [1]se e um cliente ");
-       System.out.println("digite [2]se e o adim");
-       int tipoUsuario = leitor.nextInt();
-       if(tipoUsuario == 1){
-            ConsoleManager.linparaLinhas(4);
-       }else if(tipoUsuario == 2){
+        Scanner leitor = new Scanner(System.in); 
+        System.out.print("█   █▀▀█ █▀▀ █▀▀█ █▀▀▄ █▀▀█ █▀▀█ █▀▀█     █▀▀▄ █▀▀     █▀▀ █▀▀█ █▀▀█ █▀▀█ █▀▀█ █▀▀\n");
+        System.out.print("█   █  █ █   █▄▄█ █  █ █  █ █▄▄▀ █▄▄█     █  █ █▀▀     █   █▄▄█ █▄▄▀ █▄▄▀ █  █ ▀▀█\n");
+        System.out.print("▀▀▀ ▀▀▀▀ ▀▀▀ ▀  ▀ ▀▀▀  ▀▀▀▀ ▀ ▀▀ ▀  ▀     ▀▀▀  ▀▀▀     ▀▀▀ ▀  ▀ ▀ ▀▀ ▀ ▀▀ ▀▀▀▀ ▀▀▀\n");
 
-       }
-       System.out.println("fim do progama ");
+        System.out.print("╔╗           ╔╗           ╔╗   \n" );
+        System.out.print("║║           ║║           ║║   \n" );
+        System.out.print("║║╔══╦══╦══╦═╝╠══╦═╦══╗ ╔═╝╠══╗ ╔══╦══╦═╦═╦══╦══╗\n");
+        System.out.print("║║║╔╗║╔═╣╔╗║╔╗║╔╗║╔╣╔╗║ ║╔╗║║═╣ ║╔═╣╔╗║╔╣╔╣╔╗║══╣\n");
+        System.out.print("║╚╣╚╝║╚═╣╔╗║╚╝║╚╝║║║╔╗║ ║╚╝║║═╣ ║╚═╣╔╗║║║║║╚╝╠══║\n");
+        System.out.print("╚═╩══╩══╩╝╚╩══╩══╩╝╚╝╚╝ ╚══╩══╝ ╚══╩╝╚╩╝╚╝╚══╩══╝\n");        
+        boolean continuar = true;
+        do {
+            
+            String login ;
+            String senha ;
+            
+            System.out.print("digite o seu login :");
+            login = leitor.next();
+            System.out.println();
+            
+            System.out.print("digite o sua senha :");
+            senha = leitor.next();
+            System.out.println();
+            ConsoleManager.linparConsole();
+            boolean isLogin =  loginCiente(login , senha ); 
+
+            if(!isLogin){
+                isLogin = Menu.loginAdm(login, senha);
+            }
+            if(!isLogin){
+                System.out.println("logim ou senha errados ");
+                System.out.println("digite [1]para tentar nvamente ");
+                continuar = (leitor.nextInt() == 1);
+            }else{
+                continuar = false ;
+            }
+            
+            
+            System.out.println("fim do progama ");
+            leitor.nextInt();
+        } while (continuar);
     }
 }

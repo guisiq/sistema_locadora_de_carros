@@ -6,6 +6,7 @@ import java.util.Scanner;
 import registro.Usuario.Acesso;
 
 public class Cliente implements ConsoleManager {
+
     private int id;
     private String nome;
     private String cpf;
@@ -48,6 +49,7 @@ public class Cliente implements ConsoleManager {
     public void setEmail(String email) {
         this.email = email;
     }
+
     public Telefone getTelefone() {
         return telefone;
     }
@@ -55,6 +57,7 @@ public class Cliente implements ConsoleManager {
     public void setTelefone(Telefone telefone) {
         this.telefone = telefone;
     }
+
     public List<Locacao> getListLocacao() {
 		return listLocacao;
 	}
@@ -62,6 +65,15 @@ public class Cliente implements ConsoleManager {
 	public void setListLocacao(List<Locacao> listLocacao) {
 		this.listLocacao = listLocacao;
     }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
     
     //#endregion
 

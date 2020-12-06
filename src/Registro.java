@@ -7,6 +7,7 @@ import java.util.List;
 import registro.*;
 
 public abstract class Registro {
+
     public static List<Carro>   lCarros   = new ArrayList<Carro>(Arrays.asList(new Carro[]{
         new Carro(1, "KDH-7821", new Date(2005, 10, 5) , 2002, "Hilux CS DX 4x2 2.7 16V 142cv", Cor.AZUL,Categoria.INTERMEDIÁRIO),
         new Carro(2, "KEQ-0424", new Date(2005, 10, 5) , 1993, "Corolla DX/ SW DX 1.6 16V", Cor.LARANJA,Categoria.POPULAR),
@@ -31,4 +32,5 @@ public abstract class Registro {
         null,
         null
     }));
+    public static Usuario adm  = new Usuario("root", "admlogin", Usuario.Acesso.ADM);
 }
