@@ -15,16 +15,16 @@ public class Carro implements ConsoleManager {
     private Categoria categoria;
 
     //#region construtores
-  public Carro(Integer id, String placa, Date dataDeaquisicao, int ano, String modelo, Cor cor, Categoria categoria) {
-    this.id = id;
-  //  this.nome = nome;
-    this.placa = placa;
-    this.dataDeaquisicao = dataDeaquisicao;
-    this.ano = ano;
-    this.modelo = modelo;
-    this.cor = cor;
-    this.categoria = categoria;
-}
+    public Carro(Integer id, String placa, Date dataDeaquisicao, int ano, String modelo, Cor cor, Categoria categoria) {
+        this.id = id;
+    //  this.nome = nome;
+        this.placa = placa;
+        this.dataDeaquisicao = dataDeaquisicao;
+        this.ano = ano;
+        this.modelo = modelo;
+        this.cor = cor;
+        this.categoria = categoria;
+    }
     //#endregion
 
     // #region getters e setters
@@ -131,7 +131,7 @@ public class Carro implements ConsoleManager {
         
         System.out.print(ConsoleManager.indentar(indentacao));
         System.out.println("Informe a data de aquisiçao: ");
-        //setDataDeaquisicao(leitor.next());
+        this.setDataDeaquisicao(ConsoleManager.lerdDate(leitor.next(), leitor));
         leitor.nextLine();
         
         System.out.print(ConsoleManager.indentar(indentacao));
