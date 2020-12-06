@@ -1,5 +1,6 @@
 package registro;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Cliente implements ConsoleManager {
@@ -8,6 +9,8 @@ public class Cliente implements ConsoleManager {
     private String cpf;
     private String email;
     private Telefone telefone;
+    private List<Locacao> listLocacao;
+
 
     //#region metodos getters e seters
    
