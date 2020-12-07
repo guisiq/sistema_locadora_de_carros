@@ -7,7 +7,6 @@ import registro.Usuario.Acesso;
 
 public class Cliente implements ConsoleManager {
 
-    private int id;
     private String nome,cpf,email;
     private Telefone telefone;
     private List<Locacao> listLocacao;
@@ -15,14 +14,6 @@ public class Cliente implements ConsoleManager {
 
 
     //#region metodos getters e seters
-   
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getNome() {
         return nome;
@@ -76,8 +67,7 @@ public class Cliente implements ConsoleManager {
     //#endregion
 
     //#region metodos construtores
-    public Cliente(Integer id, String nome, String cpf, String email, Telefone telefone) {
-		this.id = id;
+    public Cliente( String nome, String cpf, String email, Telefone telefone) {
 		this.nome = nome;
 		this.cpf = cpf;
         this.email = email;
@@ -94,11 +84,6 @@ public class Cliente implements ConsoleManager {
     @Override
 	public void cadastro(Scanner leitor, int indentacao) {
         // Captura de dados pessoais - CLiente da Locadora
-       
-        System.out.print(ConsoleManager.indentar(indentacao));
-        System.out.print("Informe o id do Cliente   :");
-        setId(leitor.nextInt());
-        leitor.nextLine(); 
 
         System.out.print(ConsoleManager.indentar(indentacao));
         System.out.print("Informe o Nome do Cliente :");
@@ -125,7 +110,6 @@ public class Cliente implements ConsoleManager {
         auxImpressao ="";
         sIndentacao = ConsoleManager.indentar(indentacao);
 
-        auxImpressao += sIndentacao + "Id      :"+this.getId()+"\n" ;
         auxImpressao += sIndentacao + "nome    :"+this.getNome()+"\n" ;
         auxImpressao += sIndentacao + "cpf     :"+this.getCpf()+"\n" ;
         auxImpressao += sIndentacao + "email   :"+this.getEmail()+"\n" ;
@@ -145,7 +129,7 @@ public class Cliente implements ConsoleManager {
     
     @Override
 	public String toString() {
-		return "Cliente [cpf=" + cpf + ", email=" + email + ", id=" + id + ", nome=" + nome + "]";
+		return "Cliente [cpf=" + cpf + ", email=" + email + ", nome=" + nome + "]";
 	}
     //#endregion
 
