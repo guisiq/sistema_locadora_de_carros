@@ -53,7 +53,7 @@ public class Telefone implements ConsoleManager {
 
         auxImpressao = sIndentacao + "Id      :"+this.getCodigoDeArea()+"\n" ;
         auxImpressao = sIndentacao + "nome    :"+this.getNumero()+"\n" ;
-        System.out.printf(auxImpressao);
+        System.out.print(auxImpressao);
     }
 
     @Override
