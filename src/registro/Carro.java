@@ -7,7 +7,7 @@ public class Carro implements ConsoleManager {
 
     private String placa;
     private Date dataDeaquisicao;
-    private int ano;
+    private Integer ano;
     private String modelo;
     private Cor cor;
     private Categoria categoria;
@@ -21,6 +21,7 @@ public class Carro implements ConsoleManager {
         this.cor = cor;
         this.categoria = categoria;
     }
+    
     public Carro() {
     
     }
@@ -41,6 +42,7 @@ public class Carro implements ConsoleManager {
     public void setPlaca(String placa) {
         this.placa = placa;
     }
+
     /**
      * @return Date return the dataDeaquisicao
      */
@@ -56,13 +58,13 @@ public class Carro implements ConsoleManager {
     /**
      * @return int return the ano
      */
-    public int getAno() {
+    public Integer getAno() {
         return ano;
     }
     /**
      * @param ano the ano to set
      */
-    public void setAno(int ano) {
+    public void setAno(Integer ano) {
         this.ano = ano;
     }
     /**
