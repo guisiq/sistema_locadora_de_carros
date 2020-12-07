@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class Carro implements ConsoleManager {
 
     private Integer id;
-    // private String nome;
     private String placa;
     private Date dataDeaquisicao;
     private int ano;
@@ -17,7 +16,6 @@ public class Carro implements ConsoleManager {
     //#region construtores
     public Carro(Integer id, String placa, Date dataDeaquisicao, int ano, String modelo, Cor cor, Categoria categoria) {
         this.id = id;
-    //  this.nome = nome;
         this.placa = placa;
         this.dataDeaquisicao = dataDeaquisicao;
         this.ano = ano;
@@ -165,7 +163,6 @@ public class Carro implements ConsoleManager {
         String sIndentacao = ConsoleManager.indentar(indentacao);
         
         impressao = sIndentacao + "Id                :"+this.getId()+"\n" ;
-        // impressao = sIndentacao + "Nome              :"+this.getNome()+"\n" ;
         impressao = sIndentacao + "Placa             :"+this.getPlaca()+"\n" ;
         impressao = sIndentacao + "Data de aquisicao :"+this.getDataDeaquisicao()+"\n" ;
         impressao = sIndentacao + "Ano               :"+this.getAno()+"\n" ;

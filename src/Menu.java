@@ -125,7 +125,7 @@ public  class Menu {
             System.out.print(out);
             opcao = leitor.nextInt();
             leitor.nextLine();
-            ConsoleManager.linparConsole();
+            ConsoleManager.limparConsole();
             switch (opcao) {
                 case 1:
                     Menu.listarLocacoesDeUmCliente(0, id , null );
@@ -193,7 +193,7 @@ public  class Menu {
          .-'--`-._
          '-O---O--'
          */     
-        ConsoleManager.linparConsole();
+        ConsoleManager.limparConsole();
         boolean continuar = true;
         Scanner leitor = new Scanner(System.in); 
         do {
@@ -201,23 +201,23 @@ public  class Menu {
             String login ;
             String senha ;
             
-            System.out.print("digite o seu login :");
+            System.out.print("Digite o seu login :");
             login = leitor.nextLine();
             
-            System.out.print("digite o sua senha :");
+            System.out.print("Digite o sua senha :");
             senha = leitor.next();
             leitor.nextLine();
 
-            ConsoleManager.linparConsole();
+            ConsoleManager.limparConsole();
             boolean isLogin =  loginCiente(login , senha ,leitor ); 
 
             if(!isLogin){
                 isLogin = Menu.loginAdm(login, senha);
             }
             if(!isLogin){
-                System.out.println("logim ou senha errados ");
-                System.out.println("digite [1]para tentar nvamente ");
-                System.out.println("digite qualquer outra tecla parra sair  ");
+                System.out.println("Login ou Senha Errados");
+                System.out.println("Digite [1] para tentar novamente ");
+                System.out.println("Digite qualquer outra tecla para sair  ");
                 continuar = (leitor.nextInt() == 1);
                 leitor.nextLine();
             }else{
@@ -227,6 +227,6 @@ public  class Menu {
             
         } while (continuar);
 
-        System.out.println("fim do progama ");
+        System.out.println("fim do programa: ");
     }
 }

@@ -6,12 +6,14 @@ public class Telefone implements ConsoleManager {
     private String codigoDeArea;
     private String numero;
     
+    //#region métodos construtores
     public Telefone(String codigoDeArea, String numero) {
         this.codigoDeArea = codigoDeArea;
         this.numero = numero;
     }
     public Telefone() {
-    }
+    } 
+    //#endregion
 
     // #region getters e setters
     public String getCodigoDeArea() {
@@ -47,18 +49,20 @@ public class Telefone implements ConsoleManager {
 
     @Override
     public void impressao(int indentacao) {
-        // TODO Auto-generated method stub
+        String auxImpressao ;
+        String sIndentacao = ConsoleManager.indentar(indentacao);
 
+        auxImpressao = sIndentacao + "Id      :"+this.getCodigoDeArea()+"\n" ;
+        auxImpressao = sIndentacao + "nome    :"+this.getNumero()+"\n" ;
+        System.out.printf(auxImpressao);
     }
 
     @Override
     public void impressao() {
-        // TODO Auto-generated method stub
-
+        this.impressao(0);
     }
-
-   
-
-  
-
+	@Override
+	public String toString() {
+		return "Telefone [codigoDeArea=" + codigoDeArea + ", numero=" + numero + "]";
+	}
 }

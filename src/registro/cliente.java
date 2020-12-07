@@ -78,7 +78,6 @@ public class Cliente implements ConsoleManager {
     //#endregion
 
     //#region metodos construtores
-
     public Cliente(Integer id, String nome, String cpf, String email, Telefone telefone) {
 		this.id = id;
 		this.nome = nome;
@@ -88,7 +87,6 @@ public class Cliente implements ConsoleManager {
         this.usuario = new Usuario(nome , cpf, Acesso.CLIENTE );
     }
     public Cliente(){
-
     }
     //#endregion
     
