@@ -33,7 +33,15 @@ public class Telefone implements ConsoleManager {
 
     @Override
     public void cadastro(Scanner leitor, int indentacao) {
-        // TODO Auto-generated method stub
+        System.out.print(ConsoleManager.indentar(indentacao));
+        System.out.println("Informe o código de Área do telefone: ");
+        setCodigoDeArea(leitor.nextLine());
+        leitor.nextLine(); 
+
+        System.out.print(ConsoleManager.indentar(indentacao));
+        System.out.println("Informe o número de  telefone: ");
+        setNumero(leitor.nextLine());
+        leitor.nextLine(); 
 
     }
 
