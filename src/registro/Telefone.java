@@ -35,14 +35,12 @@ public class Telefone implements ConsoleManager {
     @Override
     public void cadastro(Scanner leitor, int indentacao) {
         System.out.print(ConsoleManager.indentar(indentacao));
-        System.out.println("Informe o código de Área do telefone: ");
+        System.out.print("Informe o código de Área do telefone: ");
         setCodigoDeArea(leitor.nextLine());
-        leitor.nextLine(); 
 
         System.out.print(ConsoleManager.indentar(indentacao));
-        System.out.println("Informe o número de  telefone: ");
+        System.out.print("Informe o número de  telefone       : ");
         setNumero(leitor.nextLine());
-        leitor.nextLine(); 
 
     }
 
@@ -51,8 +49,8 @@ public class Telefone implements ConsoleManager {
         String auxImpressao,sIndentacao;
         sIndentacao = ConsoleManager.indentar(indentacao);
 
-        auxImpressao = sIndentacao + "Id      :"+this.getCodigoDeArea()+"\n" ;
-        auxImpressao = sIndentacao + "nome    :"+this.getNumero()+"\n" ;
+        auxImpressao  = sIndentacao + "codico de area :"+this.getCodigoDeArea()+"\n" ;
+        auxImpressao += sIndentacao + "numero         :"+this.getNumero()+"\n" ;
         System.out.print(auxImpressao);
     }
 

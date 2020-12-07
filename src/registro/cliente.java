@@ -96,27 +96,24 @@ public class Cliente implements ConsoleManager {
         // Captura de dados pessoais - CLiente da Locadora
        
         System.out.print(ConsoleManager.indentar(indentacao));
-        System.out.println("Informe o id do Cliente: ");
+        System.out.print("Informe o id do Cliente   :");
         setId(leitor.nextInt());
         leitor.nextLine(); 
 
         System.out.print(ConsoleManager.indentar(indentacao));
-        System.out.println("Informe o Nome do Cliente: ");
+        System.out.print("Informe o Nome do Cliente :");
         setNome(leitor.nextLine());
-        leitor.nextLine();
 
         System.out.print(ConsoleManager.indentar(indentacao));
-        System.out.println("Informe o CPF do Cliente: ");
+        System.out.print("Informe o CPF do Cliente  :");
         setCpf(leitor.nextLine());
-        leitor.nextLine();
         
         System.out.print(ConsoleManager.indentar(indentacao));
-        System.out.println("Informe o email do Cliente: ");
+        System.out.print("Informe o email do Cliente:");
         setEmail(leitor.nextLine());
-        leitor.nextLine();
 
         this.setTelefone(new Telefone());
-        this.getTelefone().cadastro(leitor,indentacao+1);
+        this.getTelefone().cadastro(leitor,indentacao+2);
         
         this.usuario = new Usuario(nome , cpf, Acesso.CLIENTE );
     
@@ -125,13 +122,14 @@ public class Cliente implements ConsoleManager {
 	public void impressao(int indentacao) {
         
         String auxImpressao,sIndentacao;
+        auxImpressao ="";
         sIndentacao = ConsoleManager.indentar(indentacao);
 
-        auxImpressao = sIndentacao + "Id      :"+this.getId()+"\n" ;
-        auxImpressao = sIndentacao + "nome    :"+this.getNome()+"\n" ;
-        auxImpressao = sIndentacao + "cpf     :"+this.getCpf()+"\n" ;
-        auxImpressao = sIndentacao + "email   :"+this.getEmail()+"\n" ;
-        auxImpressao = sIndentacao + "Telefone:\n" ;
+        auxImpressao += sIndentacao + "Id      :"+this.getId()+"\n" ;
+        auxImpressao += sIndentacao + "nome    :"+this.getNome()+"\n" ;
+        auxImpressao += sIndentacao + "cpf     :"+this.getCpf()+"\n" ;
+        auxImpressao += sIndentacao + "email   :"+this.getEmail()+"\n" ;
+        auxImpressao += sIndentacao + "Telefone:\n" ;
         System.out.print(auxImpressao);
         this.getTelefone().impressao((indentacao+1));
 
