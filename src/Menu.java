@@ -1,6 +1,5 @@
 import registro.*;
 import java.util.Comparator;
-import java.util.List;
 import java.util.Scanner;
 public  class Menu {
 
@@ -36,12 +35,26 @@ public  class Menu {
 
     //#endregion
     
-    //#region comparetor de cliente 
+    //#region Comparator de cliente 
     public static Comparator<Cliente> orderClienteBynome = ( obj1,obj2 )-> {
         String s1 = obj1.getNome();
         String s2 = obj1.getNome();
         return s1.compareTo(s2)  ;
     };
+    //#endregion
+
+    //#region Comparator de locacoes 
+    public static Comparator<Locacao> orderlocacaoByDataLocacao = ( obj1,obj2 )-> {
+        return obj1.getDatalocacao().compareTo(obj2.getDatalocacao());
+    };
+
+    public static Comparator<Locacao> orderlocacaoByDataDevolucao = ( obj1,obj2 )-> {
+        return obj1.getDataDevolucao().compareTo(obj2.getDataDevolucao());
+    };
+    public static Comparator<Locacao> orderlocacaoByValor = ( obj1,obj2 )-> {
+        return obj1.getValor().compareTo(obj2.getValor());
+    };
+    
     //#endregion
 
     //#region listagen de registros
@@ -108,7 +121,7 @@ public  class Menu {
 
     public static boolean loginCliente(String login , String senha ,Scanner leitor) {
         for (int j = 0; j < Registro.lClientes.size(); j++) {
-            Cliente cliente = Registro.lClientes.get(j);
+
             if( Registro.lClientes.get(j).getUsuario().getLogin().equals(login) &&
                 Registro.lClientes.get(j).getUsuario().getSenha().equals(senha)){
                     System.out.println(" Acesso liberado ");
@@ -140,6 +153,11 @@ public  class Menu {
             ConsoleManager.limparConsole();
             switch (opcao) {
                 case 1:
+                    System.out.println("1-listar suas locacoes");
+                    System.out.println("   1-listar suas locacoes");
+                    System.out.println("   1-listar suas locacoes");
+                    System.out.println("   1-listar suas locacoes");
+
                     Menu.listarLocacoesDeUmCliente(0, id , null );
                     break;
                 
@@ -195,8 +213,8 @@ public  class Menu {
         System.out.print("║║║╔╗║╔═╣╔╗║╔╗║╔╗║╔╣╔╗║ ║╔╗║║═╣ ║╔═╣╔╗║╔╣╔╣╔╗║══╣\n");
         System.out.print("║╚╣╚╝║╚═╣╔╗║╚╝║╚╝║║║╔╗║ ║╚╝║║═╣ ║╚═╣╔╗║║║║║╚╝╠══║\n");
         System.out.print("╚═╩══╩══╩╝╚╩══╩══╩╝╚╝╚╝ ╚══╩══╝ ╚══╩╝╚╩╝╚╝╚══╩══╝\n");   
-        String andar="";
         /*
+        String andar="";
         for (int i = 0; i < 40; i++) {
             try {
                 Thread.sleep(90);

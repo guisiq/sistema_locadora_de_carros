@@ -6,8 +6,8 @@ public abstract class Locacao implements ConsoleManager{
 	//protected int idlocacao;
 	protected Date datalocacao;
 	protected Date dataDevolucao;
-	protected float valor;
-	protected float kilometragen;
+	protected Float valor;
+	protected Float kilometragen;
 	protected Carro carro;
 
 
@@ -38,11 +38,11 @@ public abstract class Locacao implements ConsoleManager{
 		this.dataDevolucao = dataDevolucao;
 	}
 
-	public float getValor() {
+	public Float getValor() {
 		return valor;
 	}
 
-	public void setValor(float valor) {
+	public void setValor(Float valor) {
 		this.valor = valor;
 	}
 
