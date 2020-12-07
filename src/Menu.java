@@ -38,6 +38,11 @@ public  class Menu {
         return s1.compareTo(s2)  ;
     };
     //#endregion
+    public static Comparator<Cliente> orderClienteBynome = ( obj1,obj2 )-> {
+        String s1 = obj1.getNome();
+        String s2 = obj1.getNome();
+        return s1.compareTo(s2)  ;
+    };
 
     //#region listagen de registros
 
@@ -47,36 +52,42 @@ public  class Menu {
         .forEach(carro ->{
             carro.impressao(indentacao);
         });
+        
     }
     
     public static void listarOsClientes (int indentacao,Comparator<Cliente> ordem) {
-        Registro.lClientes
-            .stream().
-            sorted(ordem)
-            .forEach(carro ->{
-                carro.impressao(indentacao);
-            });
+        Registro.lClientes.sort(ordem);
+        
+        for (int i = 0; i < Registro.lClientes.size(); i++) {
+            Cliente cliente = Registro.lClientes.get(i);
+            cliente.impressao(indentacao);
+            System.out.print(ConsoleManager.indentar(indentacao));
+            System.out.println("cliente "+ i);
+            System.out.println();
+        }
+
     }
     
     public static void lstarTodasAsLocacoes(int indentacao,Comparator<Locacao> ordem) {
-        Registro.lLocacoes
-            .stream().
-            sorted(ordem)
-            .forEach(locacao ->{
-                locacao.impressao(indentacao);
-            });
+        Registro.lLocacoes.sort(ordem);
+        int indice = 0;
+
+        Registro.lLocacoes.forEach( locacao ->{ 
+            System.out.print(ConsoleManager.indentar(indentacao));
+            System.out.println("Locacao "+indice);
+            locacao.impressao(indentacao);
+           // indice ++;
+        });
     }
     
-    public static void listarLocacoesDeUmCliente(int indentacao , int id ,Comparator<Locacao> ordem) {
-        Registro.lClientes.forEach(cliente -> {
-            if(cliente.getId() == id ){
-                cliente.getListLocacao()
-                .stream()
-                .sorted(ordem)
-                .forEach(locacao ->{
-                    locacao.impressao(indentacao);
-                });
-            }
+    public static void listarLocacoesDeUmCliente(int indentacao , int indice ,Comparator<Locacao> ordem) {
+        Registro.lClientes.get(indice).getListLocacao().sort(ordem);
+        int indicel = 0;
+        Registro.lClientes.get(indice).getListLocacao().forEach( locacao ->{ 
+            System.out.print(ConsoleManager.indentar(indentacao));
+            System.out.println("Locacao "+indicel+"do cliente "+indice);
+            locacao.impressao(indentacao);
+            
         });
     }
     
