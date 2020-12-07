@@ -150,12 +150,15 @@ public  class Menu {
     }
     //#endregion
    
-    //#region
+    //#region login e menu do Adm
     public static boolean loginAdm(String login , String senha ){
-        
-        
+        if(Registro.adm.getLogin().equals(login) && Registro.adm.getSenha().equals(senha)){
+            System.out.println("Acesso Liberado");
+            return true;
+        }else
+            System.out.println("Login ou senha incorreto");
         return false;
-    }
+    } 
     public static void menuAdm () {
         
     }
