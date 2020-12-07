@@ -3,7 +3,7 @@ package registro;
 import java.util.Date;
 
 public abstract class Locacao implements ConsoleManager{
-	protected int idlocacao;
+	//protected int idlocacao;
 	protected Date datalocacao;
 	protected Date dataDevolucao;
 	protected float valor;
@@ -14,13 +14,13 @@ public abstract class Locacao implements ConsoleManager{
 	protected abstract void calcularValor();
 
 	// #region getters e setters
-	public int getIdlocacao() {
+	/* public int getIdlocacao() {
 		return idlocacao;
 	}
 
 	public void setIdlocacao(int idlocacao) {
 		this.idlocacao = idlocacao;
-	}
+	} */
 
 	public Date getDatalocacao() {
 		return datalocacao;
@@ -56,5 +56,13 @@ public abstract class Locacao implements ConsoleManager{
 	// #endregion
 
 	public Locacao() {
+	}
+
+	public Locacao( Date datalocacao, Date dataDevolucao,  float kilometragen, Carro carro) {
+		//this.idlocacao = idlocacao;
+		this.datalocacao = datalocacao;
+		this.dataDevolucao = dataDevolucao;
+		this.kilometragen = kilometragen;
+		this.carro = carro;
 	}
 }

@@ -79,4 +79,13 @@ public class LocacaoDiaria extends Locacao {
         // TODO Auto-generated method stub
 
     }
+
+    public LocacaoDiaria( Date datalocacao, Date dataDevolucao, float kilometragen, Carro carro,
+            int quantidadeDias) {
+        super(datalocacao, dataDevolucao, kilometragen, carro);
+        this.quantidadeDias = quantidadeDias;
+    }
+
+    public LocacaoDiaria() {
+    }
 }
