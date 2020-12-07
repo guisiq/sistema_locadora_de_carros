@@ -2,9 +2,8 @@ import registro.*;
 import java.util.Comparator;
 import java.util.Scanner;
 public  class Menu {
-
-    //#region Comparator Carro
     
+    //#region Comparator Carro
     public static Comparator<Carro> orderCarrosByPlaca = ( obj1,obj2 )-> {
         return obj1.getPlaca().compareTo(obj2.getPlaca());
     };
@@ -132,7 +131,7 @@ public  class Menu {
         return false;
     }
   
-    public static void menuCliente (int id ,Scanner leitor) {
+    public static void menuCliente (int indice ,Scanner leitor) {
         int opcao;
         String out = "";
         
@@ -152,27 +151,50 @@ public  class Menu {
             leitor.nextLine();
             ConsoleManager.limparConsole();
             switch (opcao) {
-                case 1:
-                    System.out.println("1-listar suas locacoes");
-                    System.out.println("   1-listar suas locacoes");
-                    System.out.println("   1-listar suas locacoes");
-                    System.out.println("   1-listar suas locacoes");
-
-                    Menu.listarLocacoesDeUmCliente(0, id , null );
-                    break;
-                
-                case 2:
-                //tem que ve se isso funciona 
+                case 1:{
+                    System.out.println("# listar suas locacoes");
+                    System.out.println("   1-listar suas locacoes ordenada por data de locacao");
+                    System.out.println("   2-listar suas locacoes ordenada por data de devolucao");
+                    System.out.println("   3-listar suas locacoes ordenada por valor ");
+                    
+                    int opcao2 = leitor.nextInt();
+                    leitor.nextLine();
+                    switch (opcao2) {
+                        case 1:
+                        Menu.listarLocacoesDeUmCliente(0, indice ,orderlocacaoByDataLocacao );
+                        break;
+                        case 2:
+                        Menu.listarLocacoesDeUmCliente(0, indice ,orderlocacaoByDataDevolucao);
+                        break;
+                        case 3:
+                        Menu.listarLocacoesDeUmCliente(0, indice ,orderlocacaoByValor);
+                        break;
+                        default:
+                        break;
+                    }  
+                }
+                break;
+                case 2: {
+                    System.out.println("#-adicionar uma locacao diaria");
                     LocacaoDiaria aux = new LocacaoDiaria();
                     Registro.lLocacoes.add(aux);
-                    Registro.lClientes.get(id).getListLocacao().add(Registro.lLocacoes.get( Registro.lLocacoes.size()-1 ));
+                    Registro.lClientes.get(indice).getListLocacao().add(Registro.lLocacoes.get( Registro.lLocacoes.size()-1 ));
                     aux.cadastro(leitor, 0);
-                    //List<Locacao> aux2 = Registro.lClientes.get(id).getListLocacao();
-                    // aux2.add(aux);
-                    // Registro.lClientes.get(id).setListLocacao(aux2);
-                    
-                    break;
-                
+                }
+                break;
+                case 3:{
+                    System.out.println("#-adicionar uma locacao extendida");
+                    LocacaoExtendida aux = new LocacaoExtendida();
+                    Registro.lLocacoes.add(aux);
+                    Registro.lClientes.get(indice).getListLocacao().add(Registro.lLocacoes.get( Registro.lLocacoes.size()-1 ));
+                    aux.cadastro(leitor, 0);
+                } 
+                break;
+                case 4:{
+                    System.out.println("#-alterar seus dados ");
+                    Registro.lClientes.get(indice).cadastro(leitor,2);
+                } 
+                break;
                 default:
                     break;
             }
