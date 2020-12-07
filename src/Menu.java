@@ -93,21 +93,21 @@ public  class Menu {
     }
     
     //#endregion
-    //#region menu e login ciente
+    //#region menu e login Cliente
 
-    public static boolean loginCiente(String login , String senha ,Scanner leitor) {
+    public static boolean loginCliente(String login , String senha ,Scanner leitor) {
         for (int j = 0; j < Registro.lClientes.size(); j++) {
             Cliente cliente = Registro.lClientes.get(j);
             if( Registro.lClientes.get(j).getUsuario().getLogin().equals(login) &&
                 Registro.lClientes.get(j).getUsuario().getSenha().equals(senha)){
-                    System.out.println(" Acesso iberado ");
-                    menuCiente(j,leitor);
+                    System.out.println(" Acesso liberado ");
+                    menuCliente(j,leitor);
                     return true;
             }
         }
         return false;
     }
-    public static void menuCiente (int id ,Scanner leitor  ) {
+    public static void menuCliente (int id ,Scanner leitor) {
         int opcao;
         String out = "";
         
@@ -116,10 +116,10 @@ public  class Menu {
         out += "  ║║║║║╩╣║║║║║   ║╬║╩╣ ║╚╣╚╣║╩╣║║║╔╣╩╬═║ \n ";
         out += "  ╚╩═╩╩═╩╩═╩═╝   ╚═╩═╝ ╚═╩═╩╩═╩╩═╩═╩═╩═╝ \n ";
         out += "\n";
-        out += "1-istar suas locacoes\n";
-        out += "2-addicionar uma locacao diaria\n";
-        out += "3-addicionar uma locacao extendida\n";
-        out += "4-altera sus dados \n";
+        out += "1-listar suas locacoes\n";
+        out += "2-adicionar uma locacao diaria\n";
+        out += "3-adicionar uma locacao extendida\n";
+        out += "4-alterar seus dados \n";
         out += "5-sair\n";
         do {
             System.out.print(out);
@@ -149,7 +149,11 @@ public  class Menu {
         } while (opcao != 5);
     }
     //#endregion
+   
+    //#region
     public static boolean loginAdm(String login , String senha ){
+        
+        
         return false;
     }
     public static void menuAdm () {
@@ -157,6 +161,7 @@ public  class Menu {
     }
     //#endregion
     public static void main(String[] args) {
+        //#region inicio
         System.out.print("█   █▀▀█ █▀▀ █▀▀█ █▀▀▄ █▀▀█ █▀▀█ █▀▀█     █▀▀▄ █▀▀     █▀▀ █▀▀█ █▀▀█ █▀▀█ █▀▀█ █▀▀\n");
         System.out.print("█   █  █ █   █▄▄█ █  █ █  █ █▄▄▀ █▄▄█     █  █ █▀▀     █   █▄▄█ █▄▄▀ █▄▄▀ █  █ ▀▀█\n");
         System.out.print("▀▀▀ ▀▀▀▀ ▀▀▀ ▀  ▀ ▀▀▀  ▀▀▀▀ ▀ ▀▀ ▀  ▀     ▀▀▀  ▀▀▀     ▀▀▀ ▀  ▀ ▀ ▀▀ ▀ ▀▀ ▀▀▀▀ ▀▀▀\n");
@@ -194,12 +199,11 @@ public  class Menu {
          '-O---O--'
          */     
         ConsoleManager.limparConsole();
+        //#endregion
         boolean continuar = true;
         Scanner leitor = new Scanner(System.in); 
         do {
-            
-            String login ;
-            String senha ;
+            String login,senha ;
             
             System.out.print("Digite o seu login :");
             login = leitor.nextLine();
@@ -209,15 +213,15 @@ public  class Menu {
             leitor.nextLine();
 
             ConsoleManager.limparConsole();
-            boolean isLogin =  loginCiente(login , senha ,leitor ); 
+            boolean isLogin =  loginCliente(login , senha ,leitor ); 
 
             if(!isLogin){
                 isLogin = Menu.loginAdm(login, senha);
             }
-            if(!isLogin){
+            else if(!isLogin){
                 System.out.println("Login ou Senha Errados");
                 System.out.println("Digite [1] para tentar novamente ");
-                System.out.println("Digite qualquer outra tecla para sair  ");
+                System.out.println("Digite qualquer outra tecla para sair");
                 continuar = (leitor.nextInt() == 1);
                 leitor.nextLine();
             }else{

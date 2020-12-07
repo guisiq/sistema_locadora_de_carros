@@ -8,9 +8,7 @@ import registro.Usuario.Acesso;
 public class Cliente implements ConsoleManager {
 
     private int id;
-    private String nome;
-    private String cpf;
-    private String email;
+    private String nome,cpf,email;
     private Telefone telefone;
     private List<Locacao> listLocacao;
     private Usuario usuario ;
@@ -125,8 +123,8 @@ public class Cliente implements ConsoleManager {
     }
 	@Override
 	public void impressao(int indentacao) {
-        String auxImpressao ;
-        String sIndentacao = ConsoleManager.indentar(indentacao);
+        String auxImpressao,sIndentacao;
+        sIndentacao = ConsoleManager.indentar(indentacao);
 
         auxImpressao = sIndentacao + "Id      :"+this.getId()+"\n" ;
         auxImpressao = sIndentacao + "nome    :"+this.getNome()+"\n" ;

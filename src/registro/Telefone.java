@@ -3,8 +3,7 @@ package registro;
 import java.util.Scanner;
 
 public class Telefone implements ConsoleManager {
-    private String codigoDeArea;
-    private String numero;
+    private String codigoDeArea,numero;
     
     //#region métodos construtores
     public Telefone(String codigoDeArea, String numero) {
@@ -49,8 +48,8 @@ public class Telefone implements ConsoleManager {
 
     @Override
     public void impressao(int indentacao) {
-        String auxImpressao ;
-        String sIndentacao = ConsoleManager.indentar(indentacao);
+        String auxImpressao,sIndentacao;
+        sIndentacao = ConsoleManager.indentar(indentacao);
 
         auxImpressao = sIndentacao + "Id      :"+this.getCodigoDeArea()+"\n" ;
         auxImpressao = sIndentacao + "nome    :"+this.getNumero()+"\n" ;
