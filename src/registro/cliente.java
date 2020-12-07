@@ -123,6 +123,7 @@ public class Cliente implements ConsoleManager {
     }
 	@Override
 	public void impressao(int indentacao) {
+        
         String auxImpressao,sIndentacao;
         sIndentacao = ConsoleManager.indentar(indentacao);
 
@@ -130,7 +131,10 @@ public class Cliente implements ConsoleManager {
         auxImpressao = sIndentacao + "nome    :"+this.getNome()+"\n" ;
         auxImpressao = sIndentacao + "cpf     :"+this.getCpf()+"\n" ;
         auxImpressao = sIndentacao + "email   :"+this.getEmail()+"\n" ;
-        System.out.printf(auxImpressao);
+        auxImpressao = sIndentacao + "Telefone:\n" ;
+        System.out.print(auxImpressao);
+        this.getTelefone().impressao((indentacao+1));
+
 	}
 
 	@Override
