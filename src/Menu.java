@@ -212,7 +212,12 @@ public  class Menu {
         return false;
     } 
     public static void menuAdm () {
-        
+        System.out.println("Menu do Administrador: ");
+        System.out.println("Digite o número da opção que você deseja: ");
+        System.out.println("1 - Cadastrar Carro: ");
+        System.out.println("2 - Cadastrar Cliente: ");
+        System.out.println("3 - : ");
+
     }
     //#endregion
     public static void main(String[] args) {
