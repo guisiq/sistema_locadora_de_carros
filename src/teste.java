@@ -3,8 +3,7 @@ import registro.*;
 public class teste {
     public static void main(String[] args) {
         Scanner leitor = new Scanner(System.in);
-        LocacaoDiaria lDiaria = new LocacaoDiaria();
-        lDiaria.cadastro(leitor, 1);
+        Menu.listarOsClientes(0,Menu.orderClienteBynome);
         System.out.println("fim teste");
     }
 }

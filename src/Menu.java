@@ -3,95 +3,107 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 public  class Menu {
+
     //#region Comparator Carro
-    /**    
-    private Integer id;
-    // private String nome;
-    private String placa;
-    private Date dataDeaquisicao;
-    private int ano;
-    private String modelo;
-    private Cor cor;
-    private Categoria categoria; 
-    */
     
     public static Comparator<Carro> orderCarrosByPlaca = ( obj1,obj2 )-> {
         return obj1.getPlaca().compareTo(obj2.getPlaca());
     };
+
     public static Comparator<Carro> orderCarrosBymodelo = ( obj1,obj2 )-> {
         return obj1.getModelo().compareTo(obj2.getModelo());
     };
+
     public static Comparator<Carro> orderCarrosByano = ( obj1,obj2 )-> {
         return obj1.getAno().compareTo( obj2.getAno() )  ;
     };
+
     public static Comparator<Carro> orderCarrosByDataDeAquisisao = ( obj1,obj2 )-> {
         return obj1.getDataDeaquisicao().compareTo( obj2.getDataDeaquisicao() )  ;
     };
+
     public static Comparator<Carro> orderCarrosByCategoria = ( obj1,obj2 )-> {
         Integer num1 = obj1.getCategoria().ordinal()  ;
         Integer num2 = obj1.getCategoria().ordinal()  ;
         return num1.compareTo( num2 )  ;
     };
+
     public static Comparator<Carro> orderCarrosByCor = ( obj1,obj2 )-> {
         String s1 = obj1.getCor().getRgbCode()  ;
         String s2 = obj1.getCor().getRgbCode()  ;
         return s1.compareTo(s2)  ;
     };
+
     //#endregion
+    
+    //#region comparetor de cliente 
     public static Comparator<Cliente> orderClienteBynome = ( obj1,obj2 )-> {
         String s1 = obj1.getNome();
         String s2 = obj1.getNome();
         return s1.compareTo(s2)  ;
     };
+    //#endregion
 
     //#region listagen de registros
 
     public static void listarOsCarros (int indentacao,Comparator<Carro> ordem) {
-        Registro.lCarros.stream().
-        sorted(ordem)
-        .forEach(carro ->{
+        Registro.lCarros.sort(ordem);
+        
+        for (int i = 0; i < Registro.lCarros.size(); i++) {
+            System.out.println();
+            System.out.println("Carro "+ i);
+            Carro carro = Registro.lCarros.get(i);
             carro.impressao(indentacao);
-        });
+        }
         
     }
     
     public static void listarOsClientes (int indentacao,Comparator<Cliente> ordem) {
         Registro.lClientes.sort(ordem);
-        
+
         for (int i = 0; i < Registro.lClientes.size(); i++) {
+            System.out.println();
+            System.out.println("cliente "+ i);
             Cliente cliente = Registro.lClientes.get(i);
             cliente.impressao(indentacao);
-            System.out.print(ConsoleManager.indentar(indentacao));
-            System.out.println("cliente "+ i);
-            System.out.println();
         }
-
+        
     }
     
     public static void lstarTodasAsLocacoes(int indentacao,Comparator<Locacao> ordem) {
         Registro.lLocacoes.sort(ordem);
-        int indice = 0;
 
-        Registro.lLocacoes.forEach( locacao ->{ 
-            System.out.print(ConsoleManager.indentar(indentacao));
-            System.out.println("Locacao "+indice);
+        for (int i = 0; i < Registro.lLocacoes.size(); i++) {
+            System.out.println();
+            System.out.println("locacao "+ i);
+            Locacao locacao = Registro.lLocacoes.get(i);
             locacao.impressao(indentacao);
-           // indice ++;
-        });
+        }
     }
     
     public static void listarLocacoesDeUmCliente(int indentacao , int indice ,Comparator<Locacao> ordem) {
         Registro.lClientes.get(indice).getListLocacao().sort(ordem);
-        int indicel = 0;
-        Registro.lClientes.get(indice).getListLocacao().forEach( locacao ->{ 
-            System.out.print(ConsoleManager.indentar(indentacao));
-            System.out.println("Locacao "+indicel+"do cliente "+indice);
+        
+        for (int i = 0; i < Registro.lClientes.get(indice).getListLocacao().size(); i++) {
+            System.out.println();
+            System.out.println("locacao "+ i);
+            Locacao locacao = Registro.lClientes.get(indice).getListLocacao().get(i);
             locacao.impressao(indentacao);
-            
-        });
+        }
+
+    }
+    
+    public static void listarAsLocacoesPorCliente (int indentacao ,Comparator<Locacao> ordem) {
+       
+        for (int i = 0; i < Registro.lClientes.size() ; i++) {
+            System.out.println();
+            System.out.println("cliente "+ i);
+            listarLocacoesDeUmCliente( indentacao,i,ordem);
+        }
     }
     
     //#endregion
+    
     //#region menu e login Cliente
 
     public static boolean loginCliente(String login , String senha ,Scanner leitor) {
@@ -106,6 +118,7 @@ public  class Menu {
         }
         return false;
     }
+  
     public static void menuCliente (int id ,Scanner leitor) {
         int opcao;
         String out = "";
@@ -164,10 +177,18 @@ public  class Menu {
     //#endregion
     public static void main(String[] args) {
         //#region inicio
-        System.out.print("█   █▀▀█ █▀▀ █▀▀█ █▀▀▄ █▀▀█ █▀▀█ █▀▀█     █▀▀▄ █▀▀     █▀▀ █▀▀█ █▀▀█ █▀▀█ █▀▀█ █▀▀\n");
-        System.out.print("█   █  █ █   █▄▄█ █  █ █  █ █▄▄▀ █▄▄█     █  █ █▀▀     █   █▄▄█ █▄▄▀ █▄▄▀ █  █ ▀▀█\n");
-        System.out.print("▀▀▀ ▀▀▀▀ ▀▀▀ ▀  ▀ ▀▀▀  ▀▀▀▀ ▀ ▀▀ ▀  ▀     ▀▀▀  ▀▀▀     ▀▀▀ ▀  ▀ ▀ ▀▀ ▀ ▀▀ ▀▀▀▀ ▀▀▀\n");
-        
+        System.out.print("█   █▀▀█ █▀▀ █▀▀█ █▀▀▄ █▀▀█ █▀▀█ █▀▀█\n");
+        System.out.print("█   █  █ █   █▄▄█ █  █ █  █ █▄▄▀ █▄▄█\n");
+        System.out.print("▀▀▀ ▀▀▀▀ ▀▀▀ ▀  ▀ ▀▀▀  ▀▀▀▀ ▀ ▀▀ ▀  ▀\n");
+        System.out.print("              █▀▀▄ █▀▀               \n");
+        System.out.print("              █  █ █▀▀               \n");
+        System.out.print("              ▀▀▀  ▀▀▀               \n");
+        System.out.print("     █▀▀ █▀▀█ █▀▀█ █▀▀█ █▀▀█ █▀▀     \n");
+        System.out.print("     █   █▄▄█ █▄▄▀ █▄▄▀ █  █ ▀▀█     \n");
+        System.out.print("     ▀▀▀ ▀  ▀ ▀ ▀▀ ▀ ▀▀ ▀▀▀▀ ▀▀▀     \n");
+
+
+
         System.out.print("╔╗           ╔╗           ╔╗                     \n" );
         System.out.print("║║           ║║           ║║                     \n" );
         System.out.print("║║╔══╦══╦══╦═╝╠══╦═╦══╗ ╔═╝╠══╗ ╔══╦══╦═╦═╦══╦══╗\n");
@@ -199,8 +220,8 @@ public  class Menu {
          __
          .-'--`-._
          '-O---O--'
-         */     
-        ConsoleManager.limparConsole();
+         ConsoleManager.limparConsole();
+        */     
         //#endregion
         boolean continuar = true;
         Scanner leitor = new Scanner(System.in); 
@@ -219,6 +240,7 @@ public  class Menu {
 
             if(!isLogin){
                 isLogin = Menu.loginAdm(login, senha);
+                isLogin = true ;
             }
             else if(!isLogin){
                 System.out.println("Login ou Senha Errados");
