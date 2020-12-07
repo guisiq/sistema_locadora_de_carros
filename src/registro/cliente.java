@@ -91,7 +91,7 @@ public class Cliente implements ConsoleManager {
     //#endregion
     
     //#region sobrescrita de metodos 
-    //#region consolemenager 
+    //#region ConsoleManager 
     
     @Override
 	public void cadastro(Scanner leitor, int indentacao) {

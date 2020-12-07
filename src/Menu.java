@@ -3,7 +3,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 public  class Menu {
-    //#region comparetor carro
+    //#region Comparator Carro
     /**    
     private Integer id;
     // private String nome;
@@ -14,7 +14,7 @@ public  class Menu {
     private Cor cor;
     private Categoria categoria; 
     */
-    public static Comparator<Carro> ordeCarrosByid = ( obj1,obj2 )-> {
+    public static Comparator<Carro> orderCarrosByid = ( obj1,obj2 )-> {
         if (obj1.getId() > obj2.getId()){
             return 1;
             
@@ -28,21 +28,21 @@ public  class Menu {
 
         }
     };
-    public static Comparator<Carro> ordeCarrosByNome = ( obj1,obj2 )-> {
+    public static Comparator<Carro> orderCarrosByNome = ( obj1,obj2 )-> {
         if (obj1.getId() > obj2.getId()){
             return 1;
             
         }
         return 1;
     };
-    public static Comparator<Carro> ordeCarrosByPlaca = ( obj1,obj2 )-> {
+    public static Comparator<Carro> orderCarrosByPlaca = ( obj1,obj2 )-> {
         if (obj1.getId() > obj2.getId()){
             return 1;
             
         }
         return 1;
     };
-    public static Comparator<Carro> ordeCarrosByDataDequisicao = ( obj1,obj2 )-> {
+    public static Comparator<Carro> orderCarrosByDataDequisicao = ( obj1,obj2 )-> {
         if (obj1.getId() > obj2.getId()){
             return 1;
             
