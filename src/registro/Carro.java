@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class Carro implements ConsoleManager {
 
-    private Integer id;
     private String placa;
     private Date dataDeaquisicao;
     private int ano;
@@ -14,8 +13,7 @@ public class Carro implements ConsoleManager {
     private Categoria categoria;
 
     //#region construtores
-    public Carro(Integer id, String placa, Date dataDeaquisicao, int ano, String modelo, Cor cor, Categoria categoria) {
-        this.id = id;
+    public Carro( String placa, Date dataDeaquisicao, int ano, String modelo, Cor cor, Categoria categoria) {
         this.placa = placa;
         this.dataDeaquisicao = dataDeaquisicao;
         this.ano = ano;
@@ -23,23 +21,14 @@ public class Carro implements ConsoleManager {
         this.cor = cor;
         this.categoria = categoria;
     }
+    public Carro() {
+    
+    }
     //#endregion
 
     // #region getters e setters
 
-    /**
-     * @return Integer return the id
-     */
-    public Integer getId() {
-        return id;
-    }
-    /**
-     * @param id the id to set
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-     
+  
     /**
      * @return String return the placa
      */
@@ -117,41 +106,40 @@ public class Carro implements ConsoleManager {
     // #region sobrescrita de metodos 
     @Override
     public void cadastro(Scanner leitor,int indentacao) {
-
-        System.out.print(ConsoleManager.indentar(indentacao));
-        System.out.println("Informe o id do Veículo: ");
-        setId(leitor.nextInt());
-        leitor.nextLine();
     
         System.out.print(ConsoleManager.indentar(indentacao));
-        System.out.println("Informe a placa do Veículo: ");
+        System.out.print("Informe a placa do Veículo    :");
         setPlaca(leitor.next());
         leitor.nextLine();
         
         System.out.print(ConsoleManager.indentar(indentacao));
-        System.out.println("Informe a data de aquisiçao: ");
-        this.setDataDeaquisicao(ConsoleManager.lerdDate(leitor.next(), leitor));
+        System.out.print("Informe a data de aquisiçao   :");
+        this.setDataDeaquisicao(ConsoleManager.lerdDate(leitor.next()));
         leitor.nextLine();
         
         System.out.print(ConsoleManager.indentar(indentacao));
-        System.out.println("Informe o ano de fabricação: ");
+        System.out.print("Informe o ano de fabricação   :");
         setAno(leitor.nextInt());
         leitor.nextLine();
         
         System.out.print(ConsoleManager.indentar(indentacao));
-        System.out.println("Informe o modelo do veículo:");
+        System.out.print("Informe o modelo do veículo   :");
         setModelo(leitor.next());
         leitor.nextLine();
         
         System.out.print(ConsoleManager.indentar(indentacao));
-        System.out.println("cor:");
-        Cor.imprimir( indentacao + 1);
+        System.out.print("informe o códico da cor       :");
+        Cor.imprimir( indentacao + 3);
+        System.out.print(ConsoleManager.indentar(indentacao));
+        System.out.print("                              :");
         setCor(Cor.valueOf(leitor.nextInt()));
         leitor.nextLine();
-
+        
         System.out.print(ConsoleManager.indentar(indentacao));
-        System.out.println("categoria:");
-        Categoria.imprimir(indentacao + 1);
+        System.out.println("infoeme o código da categoria:");
+        Categoria.imprimir(indentacao + 3);
+        System.out.print(ConsoleManager.indentar(indentacao));
+        System.out.print("                              :");
         this.setCategoria(Categoria.valueOf(leitor.nextInt()));
         leitor.nextLine();
         //return;
@@ -162,13 +150,13 @@ public class Carro implements ConsoleManager {
         String impressao = "";
         String sIndentacao = ConsoleManager.indentar(indentacao);
         
-        impressao = sIndentacao + "Id                :"+this.getId()+"\n" ;
-        impressao = sIndentacao + "Placa             :"+this.getPlaca()+"\n" ;
-        impressao = sIndentacao + "Data de aquisicao :"+this.getDataDeaquisicao()+"\n" ;
-        impressao = sIndentacao + "Ano               :"+this.getAno()+"\n" ;
-        impressao = sIndentacao + "modelo            :"+this.getModelo()+"\n" ;
-        impressao = sIndentacao + "cor               :"+this.getCor().name()+"\n" ;
-        impressao = sIndentacao + "categoria         :"+this.getCategoria().name()+"\n" ;
+        //impressao += sIndentacao + "Id                :"+this.getId()+"\n" ;
+        impressao += sIndentacao + "Placa             :"+this.getPlaca()+"\n" ;
+        impressao += sIndentacao + "Data de aquisicao :"+this.getDataDeaquisicao()+"\n" ;
+        impressao += sIndentacao + "Ano               :"+this.getAno()+"\n" ;
+        impressao += sIndentacao + "modelo            :"+this.getModelo()+"\n" ;
+        impressao += sIndentacao + "cor               :"+this.getCor().toString()+"\n" ;
+        impressao += sIndentacao + "categoria         :"+this.getCategoria().toString()+"\n" ;
         System.out.println(impressao);
     }
 
@@ -180,9 +168,11 @@ public class Carro implements ConsoleManager {
     @Override
     public String toString() {
         return " Carro [ano=" + ano + ", categoria=" + categoria + ", cor=" + cor + ", dataDeaquisicao="
-                + dataDeaquisicao + ", id=" + id + ", modelo=" + modelo + /*", nome=" + nome +*/  ", placa=" + placa + "]";
+                + dataDeaquisicao +", modelo=" + modelo + /*", nome=" + nome +*/  ", placa=" + placa + "]";
     }
     //#endregion
+
+    
 
   
 

@@ -12,7 +12,7 @@ public enum Categoria {
     }
 
     public static Categoria valueOf(int i ){
-        if(i > Categoria.values().length){
+        if(i < Categoria.values().length){
             return Categoria.values()[i];
         }
         return null ;

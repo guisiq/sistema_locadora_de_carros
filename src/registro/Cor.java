@@ -12,12 +12,12 @@ public enum Cor {
     public static void imprimir(int indentacao){
         for (int i = 0; i < Cor.values().length; i++) {
             System.out.print(ConsoleManager.indentar(indentacao));
-            System.out.println(i + Cor.values()[i].name()+": #"+Cor.values()[i].rgbCode );
+            System.out.println( i +"-"+ Cor.values()[i].name()+": #"+Cor.values()[i].rgbCode );
         }
     }
 
     public static Cor valueOf(int i ){
-        if(i > Cor.values().length){
+        if(i < Cor.values().length){
             return Cor.values()[i];
         }
         return null ;

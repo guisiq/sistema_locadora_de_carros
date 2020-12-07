@@ -13,12 +13,12 @@ public interface ConsoleManager {
     public static String indentar(int indentacao) {
         String out = "";
         for (int i = 0; i < indentacao; i++) {
-            out.concat("\t");
+            out += "  ";
         }
         return out;
     }
 
-    public static Date lerdDate(String s ,Scanner leitor){
+    public static Date lerdDate(String s ){
         Date date = null;
         try {
             DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
