@@ -120,8 +120,7 @@ public class Carro implements ConsoleManager {
 
         System.out.print(ConsoleManager.indentar(indentacao));
         System.out.print("Informe a placa do Veículo    :");
-        setPlaca(leitor.next());
-        leitor.nextLine();
+        this.checarplaca(leitor.next(),leitor);
 
         System.out.print(ConsoleManager.indentar(indentacao));
         System.out.print("Informe a data de aquisiçao   :");
@@ -183,5 +182,18 @@ public class Carro implements ConsoleManager {
                 + dataDeaquisicao + ", modelo=" + modelo + /* ", nome=" + nome + */ ", placa=" + placa + "]";
     }
     // #endregion
+
+    public void checarplaca(String placa,Scanner leitor ){
+        leitor.nextLine();
+
+        for (int i = 0; i < Registro.lCarros.size(); i++) {
+            if(Registro.lCarros.get(i).getPlaca().equals(placa)){
+                System.out.println("ja existe um carro com essa placa tente novamente ");
+                this.checarplaca(leitor.next(),leitor);
+            }
+        }
+
+        this.setPlaca(placa);
+    }
 
 }

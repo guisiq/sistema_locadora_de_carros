@@ -221,6 +221,7 @@ public  class Menu {
         }else
         return false;
     } 
+
     public static void menuAdm (Scanner leitor) {
         String out;
         out ="                      █▀▄▀█ █▀▀ █▀▀▄ █  █                       \n"; 
@@ -240,6 +241,7 @@ public  class Menu {
         System.out.println("4 - Cadastrar Cliente ");
         System.out.println("5 - Remover Cliente  ");
         System.out.println("6 - Listar Cliente  ");
+        System.out.println("7 - sair  ");
 
         int funcionalidade = leitor.nextInt();
         leitor.nextLine();
@@ -270,14 +272,17 @@ public  class Menu {
         } break;
         case 3:{
             //removendo Carro da Lista
-
+            ConsoleManager.limparConsole();
+            System.out.println("# Remover Carro ");
+            System.out.println("  digite o indice ");
+            
         } break;
         case 4:{
            //cadastrar novo Cliente
            Cliente client = new Cliente();
+           client.cadastro(leitor, 0);
            Registro.lClientes.add(client);
            //Registro.lClientes.get(indice).getListarCarros().add(Registro.lClientes.get( Registro.lClientes.size()-1 ));
-           client.cadastro(leitor, 0);
         } break;
         case 5:{
            //Remover Cliente

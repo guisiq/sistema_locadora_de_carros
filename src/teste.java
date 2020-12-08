@@ -7,9 +7,9 @@ public class teste {
         //LocacaoExtendida loExtendida = new LocacaoExtendida();
         //loExtendida.cadastro(leitor,1);
         //Menu.listarOsCarros(2,Menu.orderCarrosByCategoria);
-        Cliente cliente = new Cliente();
-        cliente.checarCpf("07794037891", leitor);
-        Menu.menuCliente(1, leitor);
+        Carro carro = new Carro();
+        carro.checarplaca("KDH-7821", leitor);
+        //Menu.menuCliente(1, leitor);
 
         System.out.println("fim teste");
     }
