@@ -172,23 +172,23 @@ public  class Menu {
                 case 2: {
                     System.out.println("#-adicionar uma locacao diaria");
                     LocacaoDiaria aux = new LocacaoDiaria();
+                    aux.cadastro(leitor, 0);
                     Registro.lLocacoes.add(aux);
                     Registro.lClientes.get(indice).getListLocacao().add(Registro.lLocacoes.get( Registro.lLocacoes.size()-1 ));
-                    aux.cadastro(leitor, 0);
                 }
                 break;
                 case 3:{
                     System.out.println("#-adicionar uma locacao extendida");
                     LocacaoExtendida aux = new LocacaoExtendida();
+                    aux.cadastro(leitor, 0);
                     Registro.lLocacoes.add(aux);
                     Registro.lClientes.get(indice).getListLocacao().add(Registro.lLocacoes.get( Registro.lLocacoes.size()-1 ));
-                    aux.cadastro(leitor, 0);
                 } 
                 break;
                 case 4:{
                     System.out.println("#-alterar seus dados ");
                     Registro.lClientes.get(indice).cadastro(leitor,2);
-                } 
+                }
                 break;
                 default:
                     break;
@@ -198,23 +198,25 @@ public  class Menu {
     //#endregion
    
     //#region login e menu do Adm
-    public static boolean loginAdm(String login , String senha ){
+    public static boolean loginAdm(String login , String senha ,Scanner leitor){
         if(Registro.adm.getLogin().equals(login) && Registro.adm.getSenha().equals(senha)){
             System.out.println("Acesso Liberado");
+            menuAdm(leitor);
             return true;
         }else
             System.out.println("Login ou senha incorreto");
         return false;
     } 
-    public static void menuAdm (int var ,Scanner leitor) {
+    public static void menuAdm (Scanner leitor) {
         System.out.println("Menu do Administrador: ");
         System.out.println("Digite o número da opção que você deseja: ");
-        System.out.println("1 - Listar Carros: ");
-        System.out.println("2 - Cadastrar Carro : ");
-        System.out.println("3 - Remover Carro : ");
-        System.out.println("4 - Cadastrar Cliente: ");
-        System.out.println("5 - Remover Cliente : ");
-        System.out.println("5 - Listar Cliente : ");
+        System.out.println("1 - Listar Carros ");
+        System.out.println("2 - Cadastrar Carro  ");
+        System.out.println("3 - Remover Carro  ");
+        System.out.println("4 - Cadastrar Cliente ");
+        System.out.println("5 - Remover Cliente  ");
+        System.out.println("6 - Listar Cliente  ");
+        System.out.println("7 - sair  ");
 
         int funcionalidade = leitor.nextInt();
         leitor.nextLine();
@@ -309,7 +311,7 @@ public  class Menu {
             boolean isLogin =  loginCliente(login , senha ,leitor ); 
 
             if(!isLogin){
-                isLogin = Menu.loginAdm(login, senha);
+                isLogin = Menu.loginAdm(login, senha,leitor);
                 isLogin = true ;
             }
             else if(!isLogin){
