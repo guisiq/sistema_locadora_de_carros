@@ -221,22 +221,22 @@ public  class Menu {
 
         switch (funcionalidade){
         case 1:{
-    
-            System.out.println("Listagem dos Carros:");
-            Menu.listarOsCarros(0, Registro.lCarros.get(i));
+            ConsoleManager.limparConsole();
+            System.out.println("# Listagem  Carros:");
+            // Menu.listarOsCarros(0, Registro.lCarros.get(i));
             System.out.println("Listagem dos Carros Ordenada:");
-            int option = leitor.nextInt();;
             System.out.println(" 1 - Ordenar por placa:");
             System.out.println(" 2 - Ordenar por data de aquisição:");
             System.out.println(" 3 - Ordenar por Ano de Fabricação:");
+            int option = leitor.nextInt();;
             if(option==1)
-            Menu.listarOsCarros (0,orderCarrosByPlaca);
+                Menu.listarOsCarros (0,orderCarrosByPlaca);
             else if(option==2)
-            Menu.listarOsCarros (0,orderCarrosByDataDeAquisicao);
+                Menu.listarOsCarros (0,orderCarrosByDataDeAquisicao);
             else if(option==3)
-            Menu.listarOsCarros (0,orderCarrosByano);
+                Menu.listarOsCarros (0,orderCarrosByano);
             else 
-            System.out.println("opção inválida");
+                System.out.println("opção inválida");
 
         }
         

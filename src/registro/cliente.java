@@ -82,7 +82,7 @@ public class Cliente implements ConsoleManager {
     //#region ConsoleManager 
     
     @Override
-	public static void cadastro(Scanner leitor, int indentacao) {
+	public void cadastro(Scanner leitor, int indentacao) {
         // Captura de dados pessoais - CLiente da Locadora
 
         System.out.print(ConsoleManager.indentar(indentacao));
