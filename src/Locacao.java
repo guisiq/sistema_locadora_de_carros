@@ -1,6 +1,7 @@
-package registro;
+
 
 import java.util.Date;
+
 
 public abstract class Locacao implements ConsoleManager{
 	//protected int idlocacao;

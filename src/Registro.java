@@ -1,10 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-//import jdk.nashorn.internal.parser.DateParser;
-import registro.*;
-
 public class Registro {
 
     public static List<Carro>   lCarros   = new ArrayList<Carro>(Arrays.asList(new Carro[]{

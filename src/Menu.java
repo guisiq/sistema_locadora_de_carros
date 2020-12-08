@@ -1,5 +1,3 @@
-import registro.*;
-//import sun.awt.util.IdentityArrayList;
 
 import java.util.Comparator;
 import java.util.Scanner;

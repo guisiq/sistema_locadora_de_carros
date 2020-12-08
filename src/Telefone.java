@@ -1,6 +1,7 @@
-package registro;
+
 
 import java.util.Scanner;
+
 
 public class Telefone implements ConsoleManager {
     private String codigoDeArea,numero;

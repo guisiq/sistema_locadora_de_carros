@@ -1,4 +1,3 @@
-package registro;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -41,3 +40,4 @@ public interface ConsoleManager {
 
     public void impressao();
 }
+

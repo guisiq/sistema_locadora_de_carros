@@ -1,11 +1,10 @@
-package registro;
+
 
 import java.util.List;
 import java.util.Scanner;
+
 import java.util.ArrayList;
 import java.util.Arrays;
-
-import registro.Usuario.Acesso;
 
 public class Cliente implements ConsoleManager {
 
@@ -74,14 +73,14 @@ public class Cliente implements ConsoleManager {
 		this.cpf = cpf;
         this.email = email;
         this.telefone = telefone;
-        this.usuario = new Usuario(nome , cpf, Acesso.CLIENTE );
+        this.usuario = new Usuario(nome , cpf, Usuario.Acesso.CLIENTE );
     }
     public Cliente( String nome, String cpf, String email, Telefone telefone ,Locacao[] listLocacao) {
 		this.nome = nome;
 		this.cpf = cpf;
         this.email = email;
         this.telefone = telefone;
-        this.usuario = new Usuario(nome , cpf, Acesso.CLIENTE );
+        this.usuario = new Usuario(nome , cpf, Usuario.Acesso.CLIENTE );
         this.listLocacao = new ArrayList<Locacao>();
         this.listLocacao.addAll(Arrays.asList(listLocacao));
     }
@@ -110,7 +109,7 @@ public class Cliente implements ConsoleManager {
         this.setTelefone(new Telefone());
         this.getTelefone().cadastro(leitor,indentacao+2);
         
-        this.usuario = new Usuario(nome , cpf, Acesso.CLIENTE );
+        this.usuario = new Usuario(nome , cpf, Usuario.Acesso.CLIENTE );
     
     }
 	@Override
@@ -145,7 +144,7 @@ public class Cliente implements ConsoleManager {
         this.setTelefone(new Telefone());
         this.getTelefone().cadastro(leitor,indentacao+2);
         
-        this.usuario = new Usuario( this.nome , this.cpf, Acesso.CLIENTE );
+        this.usuario = new Usuario( this.nome , this.cpf, Usuario.Acesso.CLIENTE );
     
     }
     //#endregion

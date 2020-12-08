@@ -1,4 +1,4 @@
-package registro;
+
 
 public class Usuario {
 	public enum Acesso {
