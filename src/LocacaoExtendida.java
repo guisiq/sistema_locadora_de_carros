@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class LocacaoExtendida extends Locacao {
     private float valorMes;
     private Integer quantidadeMeses;
+    protected Categoria categoria;
 
     // #region getters e setters
     public Integer getQuantidadeMeses() {
@@ -23,12 +24,28 @@ public class LocacaoExtendida extends Locacao {
     public void setValorMes(float valorMes) {
         this.valorMes = valorMes;
     }
+    public Categoria getCategoria() {
+        return categoria;
+    }
 
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
     // #endregion
 
     @Override
     protected void calcularValor() {
-
+        if(getCategoria().equals(Categoria.POPULAR)){
+            valorMes = quantidadeMeses*1200.90f;;
+       }
+       else if(getCategoria().equals(Categoria.INTERMEDIÁRIO)){
+           valorMes = quantidadeMeses*2300.90f;
+       }
+       else if(getCategoria().equals(Categoria.LUXO)){
+           valorMes = quantidadeMeses*4000.80f;
+       }
+       else 
+       System.out.println("Opção inválida");
     }
 
     @Override
@@ -52,7 +69,7 @@ public class LocacaoExtendida extends Locacao {
         leitor.nextLine();
         
         this.calcularValor();
-
+         
     }
 
     @Override
@@ -85,6 +102,8 @@ public class LocacaoExtendida extends Locacao {
     public String toString() {
         return "LocacaoExtendida [quantidadeMeses=" + quantidadeMeses + ", valorMes=" + valorMes + "]";
     }
+
+   
     
     
 }

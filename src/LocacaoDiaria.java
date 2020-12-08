@@ -5,12 +5,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
+import javax.lang.model.util.ElementScanner14;
+
 
 
 public class LocacaoDiaria extends Locacao {
     private float valordadiaria;
     private Integer quantidadeDias;
-
+    protected Categoria categoria;
     // #region getters e setters
 
     /**
@@ -55,11 +57,6 @@ public class LocacaoDiaria extends Locacao {
 
     //#endregion
 
-    @Override
-    protected void calcularValor() {
-        // TODO Auto-generated method stub
-
-    }
 
     @Override
     public void cadastro(Scanner leitor, int indentacao){
@@ -119,6 +116,14 @@ public class LocacaoDiaria extends Locacao {
     @Override
     public String toString() {
         return "LocacaoDiaria [quantidadeDias=" + quantidadeDias + ", valordadiaria=" + valordadiaria + "]";
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
     
 
