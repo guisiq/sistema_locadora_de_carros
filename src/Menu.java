@@ -223,6 +223,7 @@ public  class Menu {
     } 
 
     public static void menuAdm (Scanner leitor) {
+        
         String out;
         out ="                      █▀▄▀█ █▀▀ █▀▀▄ █  █                       \n"; 
         out+="                      █ ▀ █ █▀▀ █  █ █  █                       \n"; 
@@ -231,80 +232,92 @@ public  class Menu {
         out+="█▀▀█ █▀▀▄ █▀▄▀█  ▀  █▀▀▄  ▀  █▀▀ ▀▀█▀▀ █▀▀█ █▀▀█ █▀▀▄ █▀▀█ █▀▀█ \n"; 
         out+="█▄▄█ █  █ █ ▀ █ ▀█▀ █  █ ▀█▀ ▀▀█   █   █▄▄▀ █▄▄█ █  █ █  █ █▄▄▀ \n"; 
         out+="▀  ▀ ▀▀▀  ▀   ▀ ▀▀▀ ▀  ▀ ▀▀▀ ▀▀▀   ▀   ▀ ▀▀ ▀  ▀ ▀▀▀  ▀▀▀▀ ▀ ▀▀ \n";
-        System.out.println(out);
+        
         //System.out.println("Menu do Administrador: ");
-        System.out.println("Digite o número da opção que você deseja: ");
-
-        System.out.println("1 - Listar Carros ");
-        System.out.println("2 - Cadastrar Carro  ");
-        System.out.println("3 - Remover Carro  ");
-        System.out.println("4 - Cadastrar Cliente ");
-        System.out.println("5 - Remover Cliente  ");
-        System.out.println("6 - Listar Cliente  ");
-        System.out.println("7 - sair  ");
-
-        int funcionalidade = leitor.nextInt();
-        leitor.nextLine();
-
-        switch (funcionalidade){
-        case 1:{
-            ConsoleManager.limparConsole();
-            System.out.println("# Listagem  Carros:");
-            System.out.println(" 1 - Ordenar por placa:");
-            System.out.println(" 2 - Ordenar por data de aquisição:");
-            System.out.println(" 3 - Ordenar por Ano de Fabricação:");
-            int option = leitor.nextInt();;
-            if(option==1)
-                Menu.listarOsCarros (0,orderCarrosByPlaca);
-            else if(option==2)
-                Menu.listarOsCarros (0,orderCarrosByDataDeAquisicao);
-            else if(option==3)
-                Menu.listarOsCarros (0,orderCarrosByano);
-            else 
-                System.out.println("opção inválida");
-        } break;
-        case 2:{
-            //adicionando Carro na lista 
-            Carro veiculo = new Carro();
-            veiculo.cadastro(leitor, 0);
-            Registro.lCarros.add(veiculo);
-            //Registro.lClientes.get(indice).getListarCarros().add(Registro.lCarros.get( Registro.lCarros.size()-1 ));
-        } break;
-        case 3:{
-            //removendo Carro da Lista
-            ConsoleManager.limparConsole();
-            System.out.println("# Remover Carro ");
-            System.out.println("  digite o indice ");
+        out+= "1 - Listar Carros    \n";
+        out+= "2 - Cadastrar Carro  \n";
+        out+= "3 - Remover Carro    \n";
+        out+= "4 - Cadastrar Cliente\n";
+        out+= "5 - Remover Cliente  \n";
+        out+= "6 - Listar Cliente   \n";
+        out+= "7 - sair             \n";
+        out+="Digite o número da opção que você deseja:\n";
+        int funcionalidade = 0;
+        do {
             
-        } break;
-        case 4:{
-           //cadastrar novo Cliente
-           Cliente client = new Cliente();
-           client.cadastro(leitor, 0);
-           Registro.lClientes.add(client);
-           //Registro.lClientes.get(indice).getListarCarros().add(Registro.lClientes.get( Registro.lClientes.size()-1 ));
-        } break;
-        case 5:{
-           //Remover Cliente
-     
-        } break;
-        case 6:{
-            ConsoleManager.limparConsole();
-            System.out.println("# Listagem  Clientes:");
-            System.out.println(" 1 - Ordenar por Nome:");
-            System.out.println(" 2 - Ordenar por Email:");
+            System.out.println(out);
+            funcionalidade = leitor.nextInt();
+            leitor.nextLine();
 
-            int option = leitor.nextInt();;
-            if(option==1)
-                Menu.listarOsClientes(0, orderClienteByNome);
-            else if(option==2)
-                Menu.listarOsClientes(0,orderClienteByEmail);
-            else 
-                System.out.println("Opção inválida");
-        } break;
-        default:
-        break;
-        }
+            switch (funcionalidade){
+                case 1:{
+                    ConsoleManager.limparConsole();
+                    System.out.println("# Listagem  Carros:");
+                    System.out.println(" 1 - Ordenar por placa:");
+                    System.out.println(" 2 - Ordenar por data de aquisição:");
+                    System.out.println(" 3 - Ordenar por Ano de Fabricação:");
+                    int option = leitor.nextInt();;
+                    if(option==1)
+                        Menu.listarOsCarros (0,orderCarrosByPlaca);
+                    else if(option==2)
+                        Menu.listarOsCarros (0,orderCarrosByDataDeAquisicao);
+                    else if(option==3)
+                        Menu.listarOsCarros (0,orderCarrosByano);
+                    else 
+                        System.out.println("opção inválida");
+                } break;
+                case 2:{
+                    //adicionando Carro na lista 
+                    ConsoleManager.limparConsole();
+                    System.out.println("# adicinar carro:");
+                    Carro veiculo = new Carro();
+                    veiculo.cadastro(leitor, 0);
+                    Registro.lCarros.add(veiculo);
+                    //Registro.lClientes.get(indice).getListarCarros().add(Registro.lCarros.get( Registro.lCarros.size()-1 ));
+                } break;
+                case 3:{
+                    //removendo Carro da Lista
+                    ConsoleManager.limparConsole();
+                    System.out.println("# Remover Carro ");
+                    System.out.println("  digite o indice ");
+                    Registro.lCarros.remove(leitor.nextInt());
+                    leitor.nextLine();
+                    
+                } break;
+                case 4:{
+                    //cadastrar novo Cliente
+                    Cliente client = new Cliente();
+                    client.cadastro(leitor, 0);
+                    Registro.lClientes.add(client);
+                    //Registro.lClientes.get(indice).getListarCarros().add(Registro.lClientes.get( Registro.lClientes.size()-1 ));
+                } break;
+                case 5:{
+                    //Remover Cliente
+                    ConsoleManager.limparConsole();
+                    System.out.println("# Remover Cliente :");
+                    System.out.println("  digite o indice ");
+                    Registro.lClientes.remove(leitor.nextInt());
+                    leitor.nextLine();
+                    
+                } break;
+                case 6:{
+                    ConsoleManager.limparConsole();
+                    System.out.println("# Listagem  Clientes:");
+                    System.out.println(" 1 - Ordenar por Nome:");
+                    System.out.println(" 2 - Ordenar por Email:");
+
+                    int option = leitor.nextInt();;
+                    if(option==1)
+                        Menu.listarOsClientes(0, orderClienteByNome);
+                    else if(option==2)
+                        Menu.listarOsClientes(0,orderClienteByEmail);
+                    else 
+                        System.out.println("Opção inválida");
+                } break;
+                default:
+                break;
+            }
+        } while (funcionalidade !=7);
     }
     //#endregion
     
