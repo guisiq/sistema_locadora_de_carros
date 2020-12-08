@@ -35,7 +35,26 @@ public class LocacaoExtendida extends Locacao {
     @Override
     public void cadastro(Scanner leitor, int indentacao) {
         
-       
+        System.out.print(ConsoleManager.indentar(indentacao));
+        System.out.print("imforme a data de locacao  :");
+        this.setDatalocacao(ConsoleManager.lerdDate(leitor.next()));
+        leitor.nextLine();
+
+        System.out.print(ConsoleManager.indentar(indentacao));
+        System.out.print("imforme a data de devolucao:");
+        this.setDatalocacao(ConsoleManager.lerdDate(leitor.next()));
+        leitor.nextLine();
+        
+        System.out.print(ConsoleManager.indentar(indentacao));
+        System.out.print("imforme a data de devolucao:");
+        this.setDatalocacao(ConsoleManager.lerdDate(leitor.next()));
+        leitor.nextLine();
+        
+        System.out.print(ConsoleManager.indentar(indentacao));
+        System.out.print("imforme o carro:");
+        leitor.nextLine();
+
+
 
     }
 

@@ -222,15 +222,24 @@ public  class Menu {
         return false;
     } 
     public static void menuAdm (Scanner leitor) {
-        System.out.println("Menu do Administrador: ");
+        String out;
+        out ="                      █▀▄▀█ █▀▀ █▀▀▄ █  █                       \n"; 
+        out+="                      █ ▀ █ █▀▀ █  █ █  █                       \n"; 
+        out+="                      ▀   ▀ ▀▀▀ ▀  ▀  ▀▀▀                       \n";
+        
+        out+="█▀▀█ █▀▀▄ █▀▄▀█  ▀  █▀▀▄  ▀  █▀▀ ▀▀█▀▀ █▀▀█ █▀▀█ █▀▀▄ █▀▀█ █▀▀█ \n"; 
+        out+="█▄▄█ █  █ █ ▀ █ ▀█▀ █  █ ▀█▀ ▀▀█   █   █▄▄▀ █▄▄█ █  █ █  █ █▄▄▀ \n"; 
+        out+="▀  ▀ ▀▀▀  ▀   ▀ ▀▀▀ ▀  ▀ ▀▀▀ ▀▀▀   ▀   ▀ ▀▀ ▀  ▀ ▀▀▀  ▀▀▀▀ ▀ ▀▀ \n";
+        System.out.println(out);
+        //System.out.println("Menu do Administrador: ");
         System.out.println("Digite o número da opção que você deseja: ");
 
-        System.out.println("1 - Listar Carros: ");
-        System.out.println("2 - Cadastrar Carro : ");
-        System.out.println("3 - Remover Carro : ");
-        System.out.println("4 - Cadastrar Cliente: ");
-        System.out.println("5 - Remover Cliente : ");
-        System.out.println("6 - Listar Cliente : ");
+        System.out.println("1 - Listar Carros ");
+        System.out.println("2 - Cadastrar Carro  ");
+        System.out.println("3 - Remover Carro  ");
+        System.out.println("4 - Cadastrar Cliente ");
+        System.out.println("5 - Remover Cliente  ");
+        System.out.println("6 - Listar Cliente  ");
 
         int funcionalidade = leitor.nextInt();
         leitor.nextLine();
