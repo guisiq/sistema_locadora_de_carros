@@ -22,12 +22,13 @@ public class Registro {
         new Cliente( "Thales Mateus Kaique Cardoso", "07794037891","thalesmateuskaiquecardoso..thalesmateuskaiquecardoso@outloock.com",new Telefone("82","992561483"),new Locacao[]{
             Registro.lLocacoes.get(3),
             Registro.lLocacoes.get(4)
-        }),
+        ,})
         new Cliente( "Guilherme Henrique", "02494832209","lluanmatheusjoaobarros@wizardsjc.com.br",new Telefone("27","983729202"), new Locacao[]{
             Registro.lLocacoes.get(0),
             Registro.lLocacoes.get(1),
             Registro.lLocacoes.get(2)
         })
+    
         /*,
         new Cliente("Débora Benedita Elisa da Rocha", "11183004249","ddeborabeneditaelisadarocha@modus.com.br"),
         new Cliente("Luzia Luna Nunes", "57148219205","luzialunanunes__luzialunanunes@arosacampinas.com.br"),

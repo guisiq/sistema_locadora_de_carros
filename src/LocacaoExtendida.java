@@ -79,4 +79,10 @@ public class LocacaoExtendida extends Locacao {
 
     }
 
+    @Override
+    public String toString() {
+        return "LocacaoExtendida [quantidadeMeses=" + quantidadeMeses + ", valorMes=" + valorMes + "]";
+    }
+    
+    
 }

@@ -105,4 +105,10 @@ public class LocacaoDiaria extends Locacao {
         impressao( 0 );
     }
 
+    @Override
+    public String toString() {
+        return "LocacaoDiaria [quantidadeDias=" + quantidadeDias + ", valordadiaria=" + valordadiaria + "]";
+    }
+    
+
 }
