@@ -155,7 +155,7 @@ public class Cliente implements ConsoleManager {
     }
     public void checarCpf(String cpf,Scanner leitor ){
         leitor.nextLine();
-
+    
         for (int i = 0; i < Registro.lClientes.size(); i++) {
             if(Registro.lClientes.get(i).getCpf().equals(cpf)){
                 System.out.println("ja existe um cliente com esse cpf tente novamente ");

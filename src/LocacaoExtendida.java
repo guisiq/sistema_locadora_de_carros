@@ -35,19 +35,19 @@ public class LocacaoExtendida extends Locacao {
     public void cadastro(Scanner leitor, int indentacao) {
         
         System.out.print(ConsoleManager.indentar(indentacao));
-        System.out.print("imforme o carro:");
+        System.out.print("informe o carro:");
         Menu.listarOsCarros(indentacao+2,Menu.orderCarrosByCategoria);
         System.out.print(ConsoleManager.indentar(indentacao));
         System.out.print("digite o indice do carro :");
         leitor.nextLine();
 
         System.out.print(ConsoleManager.indentar(indentacao));
-        System.out.print("imforme a data de locacao  :");
+        System.out.print("informe a data de locacao:");
         this.setDatalocacao(ConsoleManager.lerdDate(leitor.next()));
         leitor.nextLine();
 
         System.out.print(ConsoleManager.indentar(indentacao));
-        System.out.print("imforme a data de devolucao:");
+        System.out.print("informe a data de devolucao:");
         this.setDatalocacao(ConsoleManager.lerdDate(leitor.next()));
         leitor.nextLine();
         
