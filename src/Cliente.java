@@ -89,6 +89,7 @@ public class Cliente implements ConsoleManager {
     //#endregion
     
     //#region sobrescrita de metodos 
+    
     //#region ConsoleManager 
     
     @Override
@@ -100,7 +101,7 @@ public class Cliente implements ConsoleManager {
 
         System.out.print(ConsoleManager.indentar(indentacao));
         System.out.print("Informe o CPF do Cliente  :");
-        setCpf(leitor.nextLine());
+        checarCpf(leitor.next(),leitor);
         
         System.out.print(ConsoleManager.indentar(indentacao));
         System.out.print("Informe o email do Cliente:");
@@ -125,12 +126,17 @@ public class Cliente implements ConsoleManager {
         this.getTelefone().impressao((indentacao+1));
 
 	}
-
 	@Override
 	public void impressao() {
         this.impressao(0);
     }
-    
+    //#endregion
+    @Override
+	public String toString() {
+		return "Cliente [cpf=" + cpf + ", email=" + email + ", nome=" + nome + "]";
+	}
+    //#endregion
+
     public void update(Scanner leitor, int indentacao) {
         
         System.out.print(ConsoleManager.indentar(indentacao));
@@ -147,14 +153,21 @@ public class Cliente implements ConsoleManager {
         this.usuario = new Usuario( this.nome , this.cpf, Usuario.Acesso.CLIENTE );
     
     }
-    //#endregion
+    public void checarCpf(String cpf,Scanner leitor ){
+        leitor.nextLine();
+
+        for (int i = 0; i < Registro.lClientes.size(); i++) {
+            if(Registro.lClientes.get(i).getCpf().equals(cpf)){
+                System.out.println("ja existe um cliente com esse cpf tente novamente ");
+                this.checarCpf(leitor.next(),leitor);
+            }
+        }
+
+        setCpf(cpf);
+    }
     
     
-    @Override
-	public String toString() {
-		return "Cliente [cpf=" + cpf + ", email=" + email + ", nome=" + nome + "]";
-	}
-    //#endregion
+    
 
     
 }
