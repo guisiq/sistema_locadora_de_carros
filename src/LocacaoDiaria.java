@@ -79,7 +79,7 @@ public class LocacaoDiaria extends Locacao {
         this.setDatalocacao(ConsoleManager.lerdDate(leitor.next()));
         leitor.nextLine();
 
-        this.calcularValor();
+        //this.calcularValor();
 
         
         /**    
