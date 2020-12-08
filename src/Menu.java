@@ -1,37 +1,32 @@
 import registro.*;
 import java.util.Comparator;
 import java.util.Scanner;
+
 public  class Menu {
     
     //#region Comparator Carro
     public static Comparator<Carro> orderCarrosByPlaca = ( obj1,obj2 )-> {
         return obj1.getPlaca().compareTo(obj2.getPlaca());
     };
-
     public static Comparator<Carro> orderCarrosBymodelo = ( obj1,obj2 )-> {
         return obj1.getModelo().compareTo(obj2.getModelo());
     };
-
     public static Comparator<Carro> orderCarrosByano = ( obj1,obj2 )-> {
         return obj1.getAno().compareTo( obj2.getAno() )  ;
     };
-
-    public static Comparator<Carro> orderCarrosByDataDeAquisisao = ( obj1,obj2 )-> {
+    public static Comparator<Carro> orderCarrosByDataDeAquisicao = ( obj1,obj2 )-> {
         return obj1.getDataDeaquisicao().compareTo( obj2.getDataDeaquisicao() )  ;
     };
-
     public static Comparator<Carro> orderCarrosByCategoria = ( obj1,obj2 )-> {
         Integer num1 = obj1.getCategoria().ordinal()  ;
         Integer num2 = obj1.getCategoria().ordinal()  ;
         return num1.compareTo( num2 )  ;
     };
-
     public static Comparator<Carro> orderCarrosByCor = ( obj1,obj2 )-> {
         String s1 = obj1.getCor().getRgbCode()  ;
         String s2 = obj1.getCor().getRgbCode()  ;
         return s1.compareTo(s2)  ;
     };
-
     //#endregion
     
     //#region Comparator de cliente 
@@ -82,7 +77,7 @@ public  class Menu {
         
     }
     
-    public static void lstarTodasAsLocacoes(int indentacao,Comparator<Locacao> ordem) {
+    public static void listarTodasAsLocacoes(int indentacao,Comparator<Locacao> ordem) {
         Registro.lLocacoes.sort(ordem);
 
         for (int i = 0; i < Registro.lLocacoes.size(); i++) {
@@ -211,13 +206,43 @@ public  class Menu {
             System.out.println("Login ou senha incorreto");
         return false;
     } 
-    public static void menuAdm () {
+    public static void menuAdm (int var ,Scanner leitor) {
         System.out.println("Menu do Administrador: ");
         System.out.println("Digite o número da opção que você deseja: ");
-        System.out.println("1 - Cadastrar Carro: ");
-        System.out.println("2 - Cadastrar Cliente: ");
-        System.out.println("3 - : ");
+        System.out.println("1 - Listar Carros: ");
+        System.out.println("2 - Cadastrar Carro : ");
+        System.out.println("3 - Remover Carro : ");
+        System.out.println("4 - Cadastrar Cliente: ");
+        System.out.println("5 - Remover Cliente : ");
+        System.out.println("5 - Listar Cliente : ");
 
+        int funcionalidade = leitor.nextInt();
+        leitor.nextLine();
+
+        switch (funcionalidade){
+        case 1:{
+    
+            System.out.println("Listagem dos Carros:");
+            Menu.listarOsCarros(0, Registro.lCarros.get(i));
+            System.out.println("Listagem dos Carros Ordenada:");
+            int option = leitor.nextInt();;
+            System.out.println(" 1 - Ordenar por placa:");
+            System.out.println(" 2 - Ordenar por data de aquisição:");
+            System.out.println(" 3 - Ordenar por Ano de Fabricação:");
+            if(option==1)
+            Menu.listarOsCarros (0,orderCarrosByPlaca);
+            else if(option==2)
+            Menu.listarOsCarros (0,orderCarrosByDataDeAquisicao);
+            else if(option==3)
+            Menu.listarOsCarros (0,orderCarrosByano);
+            else 
+            System.out.println("opção inválida");
+
+        }
+        
+        
+        
+        }
     }
     //#endregion
     public static void main(String[] args) {
@@ -301,5 +326,8 @@ public  class Menu {
         } while (continuar);
 
         System.out.println("fim do programa: ");
+    }
+
+    public Menu() {
     }
 }
