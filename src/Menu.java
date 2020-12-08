@@ -1,4 +1,6 @@
 import registro.*;
+import sun.awt.util.IdentityArrayList;
+
 import java.util.Comparator;
 import java.util.Scanner;
 
@@ -30,9 +32,14 @@ public  class Menu {
     //#endregion
     
     //#region Comparator de cliente 
-    public static Comparator<Cliente> orderClienteBynome = ( obj1,obj2 )-> {
+    public static Comparator<Cliente> orderClienteByNome = ( obj1,obj2 )-> {
         String s1 = obj1.getNome();
         String s2 = obj1.getNome();
+        return s1.compareTo(s2)  ;
+    };
+    public static Comparator<Cliente> orderClienteByEmail = ( obj1,obj2 )-> {
+        String s1 = obj1.getEmail();
+        String s2 = obj1.getEmail();
         return s1.compareTo(s2)  ;
     };
     //#endregion
@@ -214,7 +221,7 @@ public  class Menu {
         System.out.println("3 - Remover Carro : ");
         System.out.println("4 - Cadastrar Cliente: ");
         System.out.println("5 - Remover Cliente : ");
-        System.out.println("5 - Listar Cliente : ");
+        System.out.println("6 - Listar Cliente : ");
 
         int funcionalidade = leitor.nextInt();
         leitor.nextLine();
@@ -223,8 +230,6 @@ public  class Menu {
         case 1:{
             ConsoleManager.limparConsole();
             System.out.println("# Listagem  Carros:");
-            // Menu.listarOsCarros(0, Registro.lCarros.get(i));
-            System.out.println("Listagem dos Carros Ordenada:");
             System.out.println(" 1 - Ordenar por placa:");
             System.out.println(" 2 - Ordenar por data de aquisição:");
             System.out.println(" 3 - Ordenar por Ano de Fabricação:");
@@ -237,11 +242,45 @@ public  class Menu {
                 Menu.listarOsCarros (0,orderCarrosByano);
             else 
                 System.out.println("opção inválida");
+        } break;
+        case 2:{
+            //adicionando Carro na lista 
+            Carro veiculo = new Carro();
+            Registro.lCarros.add(veiculo);
+            Registro.lClientes.get(indice).getListarCarros().add(Registro.lCarros.get( Registro.lCarros.size()-1 ));
+            veiculo.cadastro(leitor, 0);
+        } break;
+        case 3:{
+            //removendo Carro da Lista
 
-        }
-        
-        
-        
+        } break;
+        case 4:{
+           //cadastrar novo Cliente
+           Cliente client = new Cliente();
+           Registro.lClientes.add(client);
+           Registro.lClientes.get(indice).getListarCarros().add(Registro.lClientes.get( Registro.lClientes.size()-1 ));
+           client.cadastro(leitor, 0);
+        } break;
+        case 5:{
+           //Remover Cliente
+     
+        } break;
+        case 6:{
+            ConsoleManager.limparConsole();
+            System.out.println("# Listagem  Clientes:");
+            System.out.println(" 1 - Ordenar por Nome:");
+            System.out.println(" 2 - Ordenar por Email:");
+
+            int option = leitor.nextInt();;
+            if(option==1)
+                Menu.listarOsClientes(0, orderClienteByNome);
+            else if(option==2)
+                Menu.listarOsClientes(0,orderClienteByEmail);
+            else 
+                System.out.println("Opção inválida");
+        } break;
+        default:
+        break;
         }
     }
     //#endregion
