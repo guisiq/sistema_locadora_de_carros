@@ -1,9 +1,13 @@
+import java.util.List;
 import java.util.Scanner;
+import java.util.Arrays;
 import registro.*;
 public class teste {
     public static void main(String[] args) {
         Scanner leitor = new Scanner(System.in);
-        Menu.listarOsClientes(0,Menu.orderClienteBynome);
+
+        Menu.menuCliente(1, leitor);
+
         System.out.println("fim teste");
     }
 }

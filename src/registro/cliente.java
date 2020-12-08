@@ -2,6 +2,7 @@ package registro;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.Arrays;
 
 import registro.Usuario.Acesso;
 
@@ -74,6 +75,14 @@ public class Cliente implements ConsoleManager {
         this.telefone = telefone;
         this.usuario = new Usuario(nome , cpf, Acesso.CLIENTE );
     }
+    public Cliente( String nome, String cpf, String email, Telefone telefone ,Locacao[] listLocacao) {
+		this.nome = nome;
+		this.cpf = cpf;
+        this.email = email;
+        this.telefone = telefone;
+        this.usuario = new Usuario(nome , cpf, Acesso.CLIENTE );
+        this.listLocacao = Arrays.asList(listLocacao);
+    }
     public Cliente(){
     }
     //#endregion
@@ -83,8 +92,7 @@ public class Cliente implements ConsoleManager {
     
     @Override
 	public void cadastro(Scanner leitor, int indentacao) {
-        // Captura de dados pessoais - CLiente da Locadora
-
+        
         System.out.print(ConsoleManager.indentar(indentacao));
         System.out.print("Informe o Nome do Cliente :");
         setNome(leitor.nextLine());
@@ -107,10 +115,8 @@ public class Cliente implements ConsoleManager {
 	public void impressao(int indentacao) {
         
         String auxImpressao,sIndentacao;
-        auxImpressao ="";
         sIndentacao = ConsoleManager.indentar(indentacao);
-
-        auxImpressao += sIndentacao + "nome    :"+this.getNome()+"\n" ;
+        auxImpressao  = sIndentacao + "nome    :"+this.getNome()+"\n" ;
         auxImpressao += sIndentacao + "cpf     :"+this.getCpf()+"\n" ;
         auxImpressao += sIndentacao + "email   :"+this.getEmail()+"\n" ;
         auxImpressao += sIndentacao + "Telefone:\n" ;
@@ -124,6 +130,22 @@ public class Cliente implements ConsoleManager {
         this.impressao(0);
     }
     
+    public void update(Scanner leitor, int indentacao) {
+        
+        System.out.print(ConsoleManager.indentar(indentacao));
+        System.out.print("Informe o Nome do Cliente :");
+        setNome(leitor.nextLine());
+
+        System.out.print(ConsoleManager.indentar(indentacao));
+        System.out.print("Informe o email do Cliente:");
+        setEmail(leitor.nextLine());
+
+        this.setTelefone(new Telefone());
+        this.getTelefone().cadastro(leitor,indentacao+2);
+        
+        this.usuario = new Usuario( this.nome , this.cpf, Acesso.CLIENTE );
+    
+    }
     //#endregion
     
     

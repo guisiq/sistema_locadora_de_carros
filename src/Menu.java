@@ -135,18 +135,21 @@ public  class Menu {
   
     public static void menuCliente (int indice ,Scanner leitor) {
         int opcao;
+        ConsoleManager.limparConsole();
         String out = "";
-        
-        out += "  ╔═╦═╗           ╔╗   ╔═╗ ╔╗    ╔╗  ╔═╗ \n ";
-        out += "  ║║║║╠═╦═╦╦╦╗   ╔╝╠═╗ ║╔╬╗╠╬═╦═╦╣╚╦═╣═╣ \n ";
-        out += "  ║║║║║╩╣║║║║║   ║╬║╩╣ ║╚╣╚╣║╩╣║║║╔╣╩╬═║ \n ";
-        out += "  ╚╩═╩╩═╩╩═╩═╝   ╚═╩═╝ ╚═╩═╩╩═╩╩═╩═╩═╩═╝ \n ";
-        out += "\n";
-        out += "1-listar suas locacoes\n";
-        out += "2-adicionar uma locacao diaria\n";
-        out += "3-adicionar uma locacao extendida\n";
-        out += "4-alterar seus dados \n";
-        out += "5-sair\n";
+        out+=" Acesso liberado                    \n";
+        out+="     █▀▄▀█ █▀▀ █▀▀▄ █  █            \n";
+        out+="     █ ▀ █ █▀▀ █  █ █  █            \n";
+        out+="     ▀   ▀ ▀▀▀ ▀  ▀ ▀▀▀▀            \n";
+        out+="█▀▀ █    ▀  █▀▀ █▀▀▄ ▀▀█▀▀ █▀▀      \n"; 
+        out+="█   █   ▀█▀ █▀▀ █  █   █   █▀▀      \n"; 
+        out+="▀▀▀ ▀▀▀ ▀▀▀ ▀▀▀ ▀  ▀   ▀   ▀▀▀      \n";
+        out+="                                    \n";
+        out+="1-listar suas locacoes              \n";
+        out+="2-adicionar uma locacao diaria      \n";
+        out+="3-adicionar uma locacao extendida   \n";
+        out+="4-alterar seus dados                \n";
+        out+="5-sair                              \n";
         do {
             System.out.print(out);
             opcao = leitor.nextInt();
@@ -163,13 +166,13 @@ public  class Menu {
                     leitor.nextLine();
                     switch (opcao2) {
                         case 1:
-                        Menu.listarLocacoesDeUmCliente(0, indice ,orderlocacaoByDataLocacao );
+                        Menu.listarLocacoesDeUmCliente(2, indice ,orderlocacaoByDataLocacao );
                         break;
                         case 2:
-                        Menu.listarLocacoesDeUmCliente(0, indice ,orderlocacaoByDataDevolucao);
+                        Menu.listarLocacoesDeUmCliente(2, indice ,orderlocacaoByDataDevolucao);
                         break;
                         case 3:
-                        Menu.listarLocacoesDeUmCliente(0, indice ,orderlocacaoByValor);
+                        Menu.listarLocacoesDeUmCliente(2, indice ,orderlocacaoByValor);
                         break;
                         default:
                         break;
@@ -179,7 +182,7 @@ public  class Menu {
                 case 2: {
                     System.out.println("#-adicionar uma locacao diaria");
                     LocacaoDiaria aux = new LocacaoDiaria();
-                    aux.cadastro(leitor, 0);
+                    aux.cadastro( leitor,1);
                     Registro.lLocacoes.add(aux);
                     Registro.lClientes.get(indice).getListLocacao().add(Registro.lLocacoes.get( Registro.lLocacoes.size()-1 ));
                 }
@@ -211,7 +214,6 @@ public  class Menu {
             menuAdm(leitor);
             return true;
         }else
-            System.out.println("Login ou senha incorreto");
         return false;
     } 
     public static void menuAdm (Scanner leitor) {
@@ -286,6 +288,7 @@ public  class Menu {
         }
     }
     //#endregion
+    
     public static void main(String[] args) {
         //#region inicio
         System.out.print("█   █▀▀█ █▀▀ █▀▀█ █▀▀▄ █▀▀█ █▀▀█ █▀▀█\n");
@@ -297,15 +300,7 @@ public  class Menu {
         System.out.print("     █▀▀ █▀▀█ █▀▀█ █▀▀█ █▀▀█ █▀▀     \n");
         System.out.print("     █   █▄▄█ █▄▄▀ █▄▄▀ █  █ ▀▀█     \n");
         System.out.print("     ▀▀▀ ▀  ▀ ▀ ▀▀ ▀ ▀▀ ▀▀▀▀ ▀▀▀     \n");
-
-
-
-        System.out.print("╔╗           ╔╗           ╔╗                     \n" );
-        System.out.print("║║           ║║           ║║                     \n" );
-        System.out.print("║║╔══╦══╦══╦═╝╠══╦═╦══╗ ╔═╝╠══╗ ╔══╦══╦═╦═╦══╦══╗\n");
-        System.out.print("║║║╔╗║╔═╣╔╗║╔╗║╔╗║╔╣╔╗║ ║╔╗║║═╣ ║╔═╣╔╗║╔╣╔╣╔╗║══╣\n");
-        System.out.print("║╚╣╚╝║╚═╣╔╗║╚╝║╚╝║║║╔╗║ ║╚╝║║═╣ ║╚═╣╔╗║║║║║╚╝╠══║\n");
-        System.out.print("╚═╩══╩══╩╝╚╩══╩══╩╝╚╝╚╝ ╚══╩══╝ ╚══╩╝╚╩╝╚╝╚══╩══╝\n");   
+        
         /*
         String andar="";
         for (int i = 0; i < 40; i++) {
@@ -346,12 +341,11 @@ public  class Menu {
             senha = leitor.next();
             leitor.nextLine();
 
-            ConsoleManager.limparConsole();
             boolean isLogin =  loginCliente(login , senha ,leitor ); 
-
+            ConsoleManager.limparConsole();
+        
             if(!isLogin){
                 isLogin = Menu.loginAdm(login, senha,leitor);
-                isLogin = true ;
             }
             else if(!isLogin){
                 System.out.println("Login ou Senha Errados");
