@@ -22,7 +22,7 @@ public class Registro {
         new Cliente( "Thales Mateus Kaique Cardoso", "07794037891","thalesmateuskaiquecardoso..thalesmateuskaiquecardoso@outloock.com",new Telefone("82","992561483"),new Locacao[]{
             Registro.lLocacoes.get(3),
             Registro.lLocacoes.get(4)
-        ,})
+        }),
         new Cliente( "Guilherme Henrique", "02494832209","lluanmatheusjoaobarros@wizardsjc.com.br",new Telefone("27","983729202"), new Locacao[]{
             Registro.lLocacoes.get(0),
             Registro.lLocacoes.get(1),
