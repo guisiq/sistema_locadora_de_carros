@@ -19,7 +19,7 @@ public  class Menu {
     };
     public static Comparator<Carro> orderCarrosByCategoria = ( obj1,obj2 )-> {
         Integer num1 = obj1.getCategoria().ordinal()  ;
-        Integer num2 = obj1.getCategoria().ordinal()  ;
+        Integer num2 = obj2.getCategoria().ordinal()  ;
         return num1.compareTo( num2 )  ;
     };
     public static Comparator<Carro> orderCarrosByCor = ( obj1,obj2 )-> {
@@ -59,10 +59,12 @@ public  class Menu {
     //#region listagen de registros
 
     public static void listarOsCarros (int indentacao,Comparator<Carro> ordem) {
-        Registro.lCarros.sort(ordem);
+        if(ordem != null){
+            Registro.lCarros.sort(ordem);
+        }
         
         for (int i = 0; i < Registro.lCarros.size(); i++) {
-            System.out.println();
+            System.out.print(ConsoleManager.indentar(indentacao));
             System.out.println("Carro "+ i);
             Carro carro = Registro.lCarros.get(i);
             carro.impressao(indentacao);

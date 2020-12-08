@@ -2,6 +2,7 @@
 import java.util.Scanner;
 
 
+
 public class LocacaoExtendida extends Locacao {
     private float valorMes;
     private Integer quantidadeMeses;
@@ -32,6 +33,13 @@ public class LocacaoExtendida extends Locacao {
 
     @Override
     public void cadastro(Scanner leitor, int indentacao) {
+        
+        System.out.print(ConsoleManager.indentar(indentacao));
+        System.out.print("imforme o carro:");
+        Menu.listarOsCarros(indentacao+2,Menu.orderCarrosByCategoria);
+        System.out.print(ConsoleManager.indentar(indentacao));
+        System.out.print("digite o indice do carro :");
+        leitor.nextLine();
 
         System.out.print(ConsoleManager.indentar(indentacao));
         System.out.print("imforme a data de locacao  :");
@@ -42,15 +50,8 @@ public class LocacaoExtendida extends Locacao {
         System.out.print("imforme a data de devolucao:");
         this.setDatalocacao(ConsoleManager.lerdDate(leitor.next()));
         leitor.nextLine();
-
-        System.out.print(ConsoleManager.indentar(indentacao));
-        System.out.print("imforme a data de devolucao:");
-        this.setDatalocacao(ConsoleManager.lerdDate(leitor.next()));
-        leitor.nextLine();
-
-        System.out.print(ConsoleManager.indentar(indentacao));
-        System.out.print("imforme o carro:");
-        leitor.nextLine();
+        
+        this.calcularValor();
 
     }
 
@@ -68,6 +69,7 @@ public class LocacaoExtendida extends Locacao {
         auxImpressao += sIndentacao + "Valor por mes      :" + this.getValorMes() + "\n";
         auxImpressao += sIndentacao + "quantidade de meses:" + this.getQuantidadeMeses() + "\n";
         auxImpressao += sIndentacao + "Carro              :\n";
+        
         System.out.print(auxImpressao);
         this.getCarro().impressao((indentacao + 2));
 
