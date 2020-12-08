@@ -1,7 +1,10 @@
 package registro;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
+
 
 public class LocacaoDiaria extends Locacao {
     private float valordadiaria;
@@ -38,6 +41,19 @@ public class LocacaoDiaria extends Locacao {
     }
     // #endregion
 
+    //#region construtores
+    
+    public LocacaoDiaria( Date datalocacao, Date dataDevolucao, float kilometragen, Carro carro,
+            int quantidadeDias) {
+        super(datalocacao, dataDevolucao, kilometragen, carro);
+        this.quantidadeDias = quantidadeDias;
+    }
+
+    public LocacaoDiaria() {
+    }
+
+    //#endregion
+
     @Override
     protected void calcularValor() {
         // TODO Auto-generated method stub
@@ -67,22 +83,25 @@ public class LocacaoDiaria extends Locacao {
 
     @Override
     public void impressao(int indentacao) {
-        // TODO Auto-generated method stub
+
+        String auxImpressao,sIndentacao;
+        sIndentacao   = ConsoleManager.indentar(indentacao);
+        auxImpressao  = sIndentacao + "tipo               : locacao Diaria\n" ;
+        auxImpressao  = sIndentacao + "Data de locacao    :"+ConsoleManager.imprimirDate(this.getDatalocacao())+"\n" ;
+        auxImpressao += sIndentacao + "Data de devolucao  :"+ConsoleManager.imprimirDate(this.getDataDevolucao())+"\n" ;
+        auxImpressao += sIndentacao + "valor              :" + this.getValor() + "\n" ;
+        auxImpressao += sIndentacao + "kilometragen       :" + this.getKilometragen() + "\n" ;
+        auxImpressao += sIndentacao + "Valor da diaria    :" + this.getValordadiaria() + "\n" ;
+        auxImpressao += sIndentacao + "quantidade de dias :" + this.getQuantidadeDias() + "\n" ;
+        auxImpressao += sIndentacao + "Carro              :\n" ;        
+        System.out.print(auxImpressao);
+        this.getCarro().impressao((indentacao+2));
 
     }
 
     @Override
     public void impressao() {
-        // TODO Auto-generated method stub
-
+        impressao( 0 );
     }
 
-    public LocacaoDiaria( Date datalocacao, Date dataDevolucao, float kilometragen, Carro carro,
-            int quantidadeDias) {
-        super(datalocacao, dataDevolucao, kilometragen, carro);
-        this.quantidadeDias = quantidadeDias;
-    }
-
-    public LocacaoDiaria() {
-    }
 }

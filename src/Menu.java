@@ -1,5 +1,5 @@
 import registro.*;
-import sun.awt.util.IdentityArrayList;
+//import sun.awt.util.IdentityArrayList;
 
 import java.util.Comparator;
 import java.util.Scanner;
@@ -166,13 +166,18 @@ public  class Menu {
                     leitor.nextLine();
                     switch (opcao2) {
                         case 1:
-                        Menu.listarLocacoesDeUmCliente(2, indice ,orderlocacaoByDataLocacao );
+                        ConsoleManager.limparConsole();
+                        System.out.println("# listar suas locacoes");
+                        System.out.println("   # listar suas locacoes ordenada por data de locacao");
+                        Menu.listarLocacoesDeUmCliente(3, indice ,orderlocacaoByDataLocacao );
                         break;
                         case 2:
-                        Menu.listarLocacoesDeUmCliente(2, indice ,orderlocacaoByDataDevolucao);
+                        ConsoleManager.limparConsole();
+                        Menu.listarLocacoesDeUmCliente(3, indice ,orderlocacaoByDataDevolucao);
                         break;
                         case 3:
-                        Menu.listarLocacoesDeUmCliente(2, indice ,orderlocacaoByValor);
+                        ConsoleManager.limparConsole();
+                        Menu.listarLocacoesDeUmCliente(3, indice ,orderlocacaoByValor);
                         break;
                         default:
                         break;
@@ -197,7 +202,7 @@ public  class Menu {
                 break;
                 case 4:{
                     System.out.println("#-alterar seus dados ");
-                    Registro.lClientes.get(indice).cadastro(leitor,2);
+                    Registro.lClientes.get(indice).update(leitor,2);
                 }
                 break;
                 default:
@@ -250,9 +255,9 @@ public  class Menu {
         case 2:{
             //adicionando Carro na lista 
             Carro veiculo = new Carro();
-            Registro.lCarros.add(veiculo);
-            Registro.lClientes.get(indice).getListarCarros().add(Registro.lCarros.get( Registro.lCarros.size()-1 ));
             veiculo.cadastro(leitor, 0);
+            Registro.lCarros.add(veiculo);
+            //Registro.lClientes.get(indice).getListarCarros().add(Registro.lCarros.get( Registro.lCarros.size()-1 ));
         } break;
         case 3:{
             //removendo Carro da Lista
@@ -262,7 +267,7 @@ public  class Menu {
            //cadastrar novo Cliente
            Cliente client = new Cliente();
            Registro.lClientes.add(client);
-           Registro.lClientes.get(indice).getListarCarros().add(Registro.lClientes.get( Registro.lClientes.size()-1 ));
+           //Registro.lClientes.get(indice).getListarCarros().add(Registro.lClientes.get( Registro.lClientes.size()-1 ));
            client.cadastro(leitor, 0);
         } break;
         case 5:{

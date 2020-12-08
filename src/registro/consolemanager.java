@@ -30,6 +30,11 @@ public interface ConsoleManager {
         return date ;
     }
 
+    public static String imprimirDate(Date data) {
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        return formato.format(data);
+    }
+
     public void cadastro( Scanner leitor , int indentacao);
 
     public void impressao( int indentacao);

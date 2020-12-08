@@ -13,15 +13,6 @@ public abstract class Locacao implements ConsoleManager{
 
 	protected abstract void calcularValor();
 
-	// #region getters e setters
-	/* public int getIdlocacao() {
-		return idlocacao;
-	}
-
-	public void setIdlocacao(int idlocacao) {
-		this.idlocacao = idlocacao;
-	} */
-
 	public Date getDatalocacao() {
 		return datalocacao;
 	}
@@ -53,6 +44,17 @@ public abstract class Locacao implements ConsoleManager{
 	public void setKilometragen(float kilometragen) {
 		this.kilometragen = kilometragen;
 	}
+	public void setKilometragen(Float kilometragen) {
+		this.kilometragen = kilometragen;
+	}
+
+	public Carro getCarro() {
+		return carro;
+	}
+
+	public void setCarro(Carro carro) {
+		this.carro = carro;
+	}
 	// #endregion
 
 	public Locacao() {
@@ -65,4 +67,6 @@ public abstract class Locacao implements ConsoleManager{
 		this.kilometragen = kilometragen;
 		this.carro = carro;
 	}
+
+	
 }

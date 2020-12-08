@@ -3,6 +3,10 @@ package registro;
 import java.util.Date;
 import java.util.Scanner;
 
+import registro.Categoria;
+import registro.ConsoleManager;
+import registro.Cor;
+
 public class Carro implements ConsoleManager {
 
     private String placa;
@@ -154,7 +158,7 @@ public class Carro implements ConsoleManager {
         
         //impressao += sIndentacao + "Id                :"+this.getId()+"\n" ;
         impressao += sIndentacao + "Placa             :"+this.getPlaca()+"\n" ;
-        impressao += sIndentacao + "Data de aquisicao :"+this.getDataDeaquisicao()+"\n" ;
+        impressao += sIndentacao + "Data de aquisicao :"+ConsoleManager.imprimirDate( this.getDataDeaquisicao())+"\n" ;
         impressao += sIndentacao + "Ano               :"+this.getAno()+"\n" ;
         impressao += sIndentacao + "modelo            :"+this.getModelo()+"\n" ;
         impressao += sIndentacao + "cor               :"+this.getCor().toString()+"\n" ;

@@ -2,6 +2,7 @@ package registro;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import registro.Usuario.Acesso;
@@ -81,7 +82,8 @@ public class Cliente implements ConsoleManager {
         this.email = email;
         this.telefone = telefone;
         this.usuario = new Usuario(nome , cpf, Acesso.CLIENTE );
-        this.listLocacao = Arrays.asList(listLocacao);
+        this.listLocacao = new ArrayList<Locacao>();
+        this.listLocacao.addAll(Arrays.asList(listLocacao));
     }
     public Cliente(){
     }

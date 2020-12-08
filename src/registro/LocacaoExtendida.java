@@ -3,38 +3,28 @@ package registro;
 import java.util.Scanner;
 
 public class LocacaoExtendida extends Locacao {
-    private float valordadiaria;
-    private Integer quantidadeDias;
+    private float valorMes;
+    private Integer quantidadeMeses;
 
 
     // #region getters e setters
-    /**
-     * @return float return the valordadiaria
-     */
-    public float getValordadiaria() {
-        return valordadiaria;
+    public Integer getQuantidadeMeses() {
+        return quantidadeMeses;
     }
 
-    /**
-     * @param valordadiaria the valordadiaria to set
-     */
-    public void setValordadiaria(float valordadiaria) {
-        this.valordadiaria = valordadiaria;
+    public void setQuantidadeMeses(Integer quantidadeMeses) {
+        this.quantidadeMeses = quantidadeMeses;
     }
 
-    /**
-     * @return Integer return the quantidadeDias
-     */
-    public Integer getQuantidadeDias() {
-        return quantidadeDias;
+    public float getValorMes() {
+        return valorMes;
+    }
+    
+    public void setValorMes(float valorMes) {
+        this.valorMes = valorMes;
     }
 
-    /**
-     * @param quantidadeDias the quantidadeDias to set
-     */
-    public void setQuantidadeDias(Integer quantidadeDias) {
-        this.quantidadeDias = quantidadeDias;
-    }
+    
     // #endregion
 
     @Override
@@ -44,19 +34,33 @@ public class LocacaoExtendida extends Locacao {
 
     @Override
     public void cadastro(Scanner leitor, int indentacao) {
-        // TODO Auto-generated method stub
+        
+       
 
     }
 
     @Override
     public void impressao(int indentacao) {
-        // TODO Auto-generated method stub
+       
+        String auxImpressao,sIndentacao;
+        sIndentacao   = ConsoleManager.indentar(indentacao);
+        auxImpressao  = sIndentacao + "tipo               : extendida\n" ;
+        auxImpressao  = sIndentacao + "Data de locacao    :"+ConsoleManager.imprimirDate(this.getDatalocacao())+"\n" ;
+        auxImpressao += sIndentacao + "Data de devolucao  :"+ConsoleManager.imprimirDate(this.getDataDevolucao())+"\n" ;
+        auxImpressao += sIndentacao + "valor              :" + this.getValor() + "\n" ;
+        auxImpressao += sIndentacao + "kilometragen       :" + this.getKilometragen() + "\n" ;
+        auxImpressao += sIndentacao + "Valor por mes      :" + this.getValorMes() + "\n" ;
+        auxImpressao += sIndentacao + "quantidade de meses:" + this.getQuantidadeMeses() + "\n" ;
+        auxImpressao += sIndentacao + "Carro              :\n" ;
+        System.out.print(auxImpressao);
+        this.getCarro().impressao((indentacao+2));
+
 
     }
 
     @Override
     public void impressao() {
-        // TODO Auto-generated method stub
+        this.impressao(0);
 
     }
 
