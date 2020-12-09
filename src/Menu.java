@@ -240,7 +240,9 @@ public  class Menu {
         out+= "4 - Cadastrar Cliente\n";
         out+= "5 - Remover Cliente  \n";
         out+= "6 - Listar Cliente   \n";
-        out+= "7 - sair             \n";
+        out+= "7 - Listar locacoes  \n";
+        out+= "8 - listar locacoes por cliente \n";
+        out+= "9 - sair  \n";
         out+="Digite o número da opção que você deseja:\n";
         int funcionalidade = 0;
         do {
@@ -314,10 +316,16 @@ public  class Menu {
                     else 
                         System.out.println("Opção inválida");
                 } break;
+                case 7:{
+                    listarTodasAsLocacoes(2, orderlocacaoByValor);
+                } break;
+                case 8:{
+                    listarAsLocacoesPorCliente(2, orderlocacaoByValor);
+                } break;
                 default:
                 break;
             }
-        } while (funcionalidade !=7);
+        } while (funcionalidade !=9);
     }
     //#endregion
     
@@ -326,9 +334,9 @@ public  class Menu {
         System.out.print("█   █▀▀█ █▀▀ █▀▀█ █▀▀▄ █▀▀█ █▀▀█ █▀▀█\n");
         System.out.print("█   █  █ █   █▄▄█ █  █ █  █ █▄▄▀ █▄▄█\n");
         System.out.print("▀▀▀ ▀▀▀▀ ▀▀▀ ▀  ▀ ▀▀▀  ▀▀▀▀ ▀ ▀▀ ▀  ▀\n");
-        System.out.print("              █▀▀▄ █▀▀               \n");
-        System.out.print("              █  █ █▀▀               \n");
-        System.out.print("              ▀▀▀  ▀▀▀               \n");
+        System.out.print(" __           █▀▀▄ █▀▀    __         \n");
+        System.out.print(" .-'--`-._    █  █ █▀▀    .-'--`-._  \n");
+        System.out.print(" '-O---O--'   ▀▀▀  ▀▀▀    '-O---O--' \n");
         System.out.print("     █▀▀ █▀▀█ █▀▀█ █▀▀█ █▀▀█ █▀▀     \n");
         System.out.print("     █   █▄▄█ █▄▄▀ █▄▄▀ █  █ ▀▀█     \n");
         System.out.print("     ▀▀▀ ▀  ▀ ▀ ▀▀ ▀ ▀▀ ▀▀▀▀ ▀▀▀     \n");
@@ -350,13 +358,13 @@ public  class Menu {
         }
         */
         /**
-         ______        a
-         /|_||_\`.__    a
+           ______        a
+          /|_||_\`.__    a
          (   _    _ _\   a
          =`-(_)--(_)-'   a
          
-         __
-         .-'--`-._
+         __        
+         .-'--`-._ 
          '-O---O--'
          ConsoleManager.limparConsole();
         */     
@@ -395,6 +403,5 @@ public  class Menu {
         System.out.println("fim do programa: ");
     }
 
-    public Menu() {
-    }
+
 }
