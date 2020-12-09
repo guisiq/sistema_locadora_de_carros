@@ -17,6 +17,7 @@ public class LocacaoExtendida extends Locacao {
 
     // #endregion
 
+    //#region sobrescrita de metodos
     @Override
     protected void calcularValor() {
 
@@ -41,10 +42,15 @@ public class LocacaoExtendida extends Locacao {
     public void cadastro(Scanner leitor, int indentacao) {
 
         System.out.print(ConsoleManager.indentar(indentacao));
-        System.out.print("informe o carro:");
-        Menu.listarOsCarros(indentacao + 2, Menu.orderCarrosByCategoria);
-        System.out.print(ConsoleManager.indentar(indentacao));
         System.out.print("digite o indice do carro :");
+        Menu.listarOsCarros(indentacao+2,Menu.orderCarrosByCategoria);
+        System.out.print(ConsoleManager.indentar(indentacao));
+        int aux = leitor.nextInt();
+        if (aux > Registro.lCarros.size()) {
+            this.setCarro(Registro.lCarros.get(leitor.nextInt()));
+        } else {
+            this.setCarro(Registro.lCarros.get(Registro.lCarros.size()-1));
+        }
         leitor.nextLine();
 
         System.out.print(ConsoleManager.indentar(indentacao));
@@ -90,7 +96,9 @@ public class LocacaoExtendida extends Locacao {
     public String toString() {
         return "LocacaoExtendida [quantidadeMeses=" + quantidadeMeses + "]";
     }
+    //#endregion
 
+    //#region contrutores
     public LocacaoExtendida(Date datalocacao, Date dataDevolucao, float kilometragen, Carro carro) {
         super(datalocacao, dataDevolucao, kilometragen, carro);
         this.calcularValor();
@@ -98,6 +106,7 @@ public class LocacaoExtendida extends Locacao {
 
     public LocacaoExtendida() {
     }
+    //#endregion
 
    
     

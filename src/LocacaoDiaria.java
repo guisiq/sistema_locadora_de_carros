@@ -40,10 +40,15 @@ public class LocacaoDiaria extends Locacao {
     public void cadastro(Scanner leitor, int indentacao){
         
         System.out.print(ConsoleManager.indentar(indentacao));
-        System.out.print("imforme o carro:");
+        System.out.print("digite o indice do carro :");
         Menu.listarOsCarros(indentacao+2,Menu.orderCarrosByCategoria);
         System.out.print(ConsoleManager.indentar(indentacao));
-        System.out.print("digite o indice do carro :");
+        int aux = leitor.nextInt();
+        if (aux > Registro.lCarros.size()) {
+            this.setCarro(Registro.lCarros.get(leitor.nextInt()));
+        } else {
+            this.setCarro(Registro.lCarros.get(Registro.lCarros.size()-1));
+        }
         leitor.nextLine();
 
 
