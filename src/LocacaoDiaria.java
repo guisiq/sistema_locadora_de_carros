@@ -5,10 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
-import javax.lang.model.util.ElementScanner14;
-
-
-
 public class LocacaoDiaria extends Locacao {
     private Integer quantidadeDias;
     // #region getters e setters
