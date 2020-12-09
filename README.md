@@ -1,4 +1,4 @@
-# Prova A2 de algoritimos de progamacao 2 
+# Prova A2 de algoritmos de programação 2 
 
 ## Getting Started
 
