@@ -10,46 +10,24 @@ import javax.lang.model.util.ElementScanner14;
 
 
 public class LocacaoDiaria extends Locacao {
-    private float valordadiaria;
     private Integer quantidadeDias;
-    protected Categoria categoria;
     // #region getters e setters
 
-    /**
-     * @return float return the valordadiaria
-     */
-    public float getValordadiaria() {
-        return valordadiaria;
-    }
-
-    /**
-     * @param valordadiaria the valordadiaria to set
-     */
-    public void setValordadiaria(float valordadiaria) {
-        this.valordadiaria = valordadiaria;
-    }
-
-    /**
-     * @return Integer return the quantidadeDias
-     */
     public Integer getQuantidadeDias() {
         return quantidadeDias;
     }
 
-    /**
-     * @param quantidadeDias the quantidadeDias to set
-     */
     public void setQuantidadeDias(Integer quantidadeDias) {
         this.quantidadeDias = quantidadeDias;
     }
+
     // #endregion
 
     //#region construtores
     
-    public LocacaoDiaria( Date datalocacao, Date dataDevolucao, float kilometragen, Carro carro,
-            int quantidadeDias) {
+    public LocacaoDiaria( Date datalocacao, Date dataDevolucao, float kilometragen, Carro carro) {
         super(datalocacao, dataDevolucao, kilometragen, carro);
-        this.quantidadeDias = quantidadeDias;
+        this.calcularValor();
     }
 
     public LocacaoDiaria() {
@@ -100,7 +78,6 @@ public class LocacaoDiaria extends Locacao {
         auxImpressao += sIndentacao + "Data de devolucao  :"+ConsoleManager.imprimirDate(this.getDataDevolucao())+"\n" ;
         auxImpressao += sIndentacao + "valor              :" + this.getValor() + "\n" ;
         auxImpressao += sIndentacao + "kilometragen       :" + this.getKilometragen() + "\n" ;
-        auxImpressao += sIndentacao + "Valor da diaria    :" + this.getValordadiaria() + "\n" ;
         auxImpressao += sIndentacao + "quantidade de dias :" + this.getQuantidadeDias() + "\n" ;
         auxImpressao += sIndentacao + "Carro              :\n" ;        
         System.out.print(auxImpressao);
@@ -114,17 +91,30 @@ public class LocacaoDiaria extends Locacao {
     }
 
     @Override
+    protected void calcularValor() {
+        
+        long interTempo = (this.dataDevolucao.getTime() - this.datalocacao.getTime()) /1000/60/60/24 ;
+        
+        if(interTempo % 1 > 0 ){
+            interTempo++;
+        }
+
+        this.setQuantidadeDias((int) interTempo) ;
+
+        if(getCarro().getCategoria() == Categoria.POPULAR){
+            this.valor = interTempo* 45f*30*0.7f;
+        }
+        else if(getCarro().getCategoria() == Categoria.INTERMEDIÁRIO){
+            this.valor = interTempo*80.90f*30*0.7f;
+        }
+        else if(getCarro().getCategoria() == Categoria.LUXO){
+            this.valor = interTempo*130.80f*30*0.7f;
+        }
+    }
+
+    @Override
     public String toString() {
-        return "LocacaoDiaria [quantidadeDias=" + quantidadeDias + ", valordadiaria=" + valordadiaria + "]";
+        return "LocacaoDiaria [quantidadeDias=" + quantidadeDias + "]";
     }
-
-    public Categoria getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
-    }
-    
 
 }

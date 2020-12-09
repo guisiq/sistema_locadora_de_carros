@@ -11,22 +11,26 @@ public class Registro {
         new Carro("MZS9310" , ConsoleManager.lerdDate("5/10/2005"), 2008, "MARRU", Cor.PRATA,Categoria.INTERMEDIÁRIO),
     }));
     public static List<Locacao> lLocacoes = new ArrayList<Locacao>(Arrays.asList(new Locacao[]{
-        new LocacaoDiaria(ConsoleManager.lerdDate("04/05/2012"),ConsoleManager.lerdDate("09/06/2012"),30.000f,Registro.lCarros.get(1),10),
-        new LocacaoDiaria(ConsoleManager.lerdDate("08/06/2012"),ConsoleManager.lerdDate("09/12/2012"),20.800f,Registro.lCarros.get(2),10),
-        new LocacaoDiaria(ConsoleManager.lerdDate("08/16/2012"),ConsoleManager.lerdDate("09/24/2012"),10.800f,Registro.lCarros.get(3),10),
-        new LocacaoDiaria(ConsoleManager.lerdDate("08/16/2012"),ConsoleManager.lerdDate("09/24/2012"),10.800f,Registro.lCarros.get(4),10),
-        new LocacaoDiaria(ConsoleManager.lerdDate("08/16/2012"),ConsoleManager.lerdDate("09/24/2012"),10.800f,Registro.lCarros.get(4),10)
+        new LocacaoDiaria(ConsoleManager.lerdDate("04/05/2012"),ConsoleManager.lerdDate("09/06/2012"),30.000f,Registro.lCarros.get(1)),
+        new LocacaoDiaria(ConsoleManager.lerdDate("08/06/2012"),ConsoleManager.lerdDate("09/12/2012"),20.800f,Registro.lCarros.get(2)),
+        new LocacaoDiaria(ConsoleManager.lerdDate("08/16/2012"),ConsoleManager.lerdDate("09/24/2012"),10.800f,Registro.lCarros.get(3)),
+        new LocacaoDiaria(ConsoleManager.lerdDate("08/16/2012"),ConsoleManager.lerdDate("09/24/2012"),10.800f,Registro.lCarros.get(4)),
+        new LocacaoDiaria(ConsoleManager.lerdDate("08/16/2012"),ConsoleManager.lerdDate("09/24/2012"),10.800f,Registro.lCarros.get(4)),
+        new LocacaoExtendida(ConsoleManager.lerdDate("08/16/2012"),ConsoleManager.lerdDate("09/24/2012"),10.800f,Registro.lCarros.get(4)),
+        new LocacaoExtendida(ConsoleManager.lerdDate("08/16/2012"),ConsoleManager.lerdDate("09/24/2012"),10.800f,Registro.lCarros.get(4))
     }));
 
     public static List<Cliente> lClientes = new ArrayList<Cliente>(Arrays.asList(new Cliente[]{
         new Cliente( "Thales Mateus Kaique Cardoso", "07794037891","thalesmateuskaiquecardoso..thalesmateuskaiquecardoso@outloock.com",new Telefone("82","992561483"),new Locacao[]{
             Registro.lLocacoes.get(3),
-            Registro.lLocacoes.get(4)
+            Registro.lLocacoes.get(4),
+            Registro.lLocacoes.get(5)
         }),
         new Cliente( "Guilherme Henrique", "02494832209","lluanmatheusjoaobarros@wizardsjc.com.br",new Telefone("27","983729202"), new Locacao[]{
             Registro.lLocacoes.get(0),
             Registro.lLocacoes.get(1),
-            Registro.lLocacoes.get(2)
+            Registro.lLocacoes.get(2),
+            Registro.lLocacoes.get(6)
         })
     
         /*,

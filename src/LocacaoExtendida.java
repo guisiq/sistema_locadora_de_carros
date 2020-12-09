@@ -1,12 +1,10 @@
 
+import java.util.Date;
 import java.util.Scanner;
 
-
-
 public class LocacaoExtendida extends Locacao {
-    private float valorMes;
+    //private float valorMes;
     private Integer quantidadeMeses;
-    protected Categoria categoria;
 
     // #region getters e setters
     public Integer getQuantidadeMeses() {
@@ -17,43 +15,34 @@ public class LocacaoExtendida extends Locacao {
         this.quantidadeMeses = quantidadeMeses;
     }
 
-    public float getValorMes() {
-        return valorMes;
-    }
-
-    public void setValorMes(float valorMes) {
-        this.valorMes = valorMes;
-    }
-    public Categoria getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
-    }
     // #endregion
 
     @Override
     protected void calcularValor() {
-        if(getCategoria().equals(Categoria.POPULAR)){
-            valorMes = quantidadeMeses*1200.90f;;
-       }
-       else if(getCategoria().equals(Categoria.INTERMEDIÁRIO)){
-           valorMes = quantidadeMeses*2300.90f;
-       }
-       else if(getCategoria().equals(Categoria.LUXO)){
-           valorMes = quantidadeMeses*4000.80f;
-       }
-       else 
-       System.out.println("Opção inválida");
+
+        long interTempo = (this.dataDevolucao.getTime() - this.datalocacao.getTime()) / 1000 / 60 / 60 / 24 / 30;
+
+        if (interTempo % 1 > 0) {
+            interTempo++;
+        }
+
+        this.setQuantidadeMeses((int) interTempo);
+
+        if (getCarro().getCategoria() == Categoria.POPULAR) {
+            this.valor = interTempo * 45f * 30 * 0.7f;
+        } else if (getCarro().getCategoria() == Categoria.INTERMEDIÁRIO) {
+            this.valor = interTempo * 80.90f * 30 * 0.7f;
+        } else if (getCarro().getCategoria() == Categoria.LUXO) {
+            this.valor = interTempo * 130.80f * 30 * 0.7f;
+        }
     }
 
     @Override
     public void cadastro(Scanner leitor, int indentacao) {
-        
+
         System.out.print(ConsoleManager.indentar(indentacao));
         System.out.print("informe o carro:");
-        Menu.listarOsCarros(indentacao+2,Menu.orderCarrosByCategoria);
+        Menu.listarOsCarros(indentacao + 2, Menu.orderCarrosByCategoria);
         System.out.print(ConsoleManager.indentar(indentacao));
         System.out.print("digite o indice do carro :");
         leitor.nextLine();
@@ -67,9 +56,9 @@ public class LocacaoExtendida extends Locacao {
         System.out.print("informe a data de devolucao:");
         this.setDatalocacao(ConsoleManager.lerdDate(leitor.next()));
         leitor.nextLine();
-        
-        //this.calcularValor();
-         
+
+        this.calcularValor();
+
     }
 
     @Override
@@ -83,10 +72,9 @@ public class LocacaoExtendida extends Locacao {
                 + "\n";
         auxImpressao += sIndentacao + "valor              :" + this.getValor() + "\n";
         auxImpressao += sIndentacao + "kilometragen       :" + this.getKilometragen() + "\n";
-        auxImpressao += sIndentacao + "Valor por mes      :" + this.getValorMes() + "\n";
         auxImpressao += sIndentacao + "quantidade de meses:" + this.getQuantidadeMeses() + "\n";
         auxImpressao += sIndentacao + "Carro              :\n";
-        
+
         System.out.print(auxImpressao);
         this.getCarro().impressao((indentacao + 2));
 
@@ -100,7 +88,15 @@ public class LocacaoExtendida extends Locacao {
 
     @Override
     public String toString() {
-        return "LocacaoExtendida [quantidadeMeses=" + quantidadeMeses + ", valorMes=" + valorMes + "]";
+        return "LocacaoExtendida [quantidadeMeses=" + quantidadeMeses + "]";
+    }
+
+    public LocacaoExtendida(Date datalocacao, Date dataDevolucao, float kilometragen, Carro carro) {
+        super(datalocacao, dataDevolucao, kilometragen, carro);
+        this.calcularValor();
+    }
+
+    public LocacaoExtendida() {
     }
 
    
