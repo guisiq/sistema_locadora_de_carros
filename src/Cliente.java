@@ -166,6 +166,19 @@ public class Cliente implements ConsoleManager {
         setCpf(cpf);
     }
     
+     //#region Comparator de cliente 
+     public static Comparator<Cliente> orderClienteByNome = ( obj1,obj2 )-> {
+        String s1 = obj1.getNome();
+        String s2 = obj1.getNome();
+        return s1.compareTo(s2)  ;
+    };
+    
+    public static Comparator<Cliente> orderClienteByEmail = ( obj1,obj2 )-> {
+        String s1 = obj1.getEmail();
+        String s2 = obj1.getEmail();
+        return s1.compareTo(s2)  ;
+    };
+    //#endregion
     
     
 

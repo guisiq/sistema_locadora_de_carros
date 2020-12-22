@@ -69,5 +69,18 @@ public abstract class Locacao implements ConsoleManager{
 		this.carro = carro;
 	}
 
+	//#region Comparator de locacoes 
+    public static Comparator<Locacao> orderlocacaoByDataLocacao = ( obj1,obj2 )-> {
+        return obj1.getDatalocacao().compareTo(obj2.getDatalocacao());
+    };
+
+    public static Comparator<Locacao> orderlocacaoByDataDevolucao = ( obj1,obj2 )-> {
+        return obj1.getDataDevolucao().compareTo(obj2.getDataDevolucao());
+    };
+    public static Comparator<Locacao> orderlocacaoByValor = ( obj1,obj2 )-> {
+        return obj1.getValor().compareTo(obj2.getValor());
+    };
+    
+    //#endregion
 	
 }

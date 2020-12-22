@@ -4,57 +4,7 @@ import java.util.Scanner;
 
 public  class Menu {
     
-    //#region Comparator Carro
-    public static Comparator<Carro> orderCarrosByPlaca = ( obj1,obj2 )-> {
-        return obj1.getPlaca().compareTo(obj2.getPlaca());
-    };
-    public static Comparator<Carro> orderCarrosBymodelo = ( obj1,obj2 )-> {
-        return obj1.getModelo().compareTo(obj2.getModelo());
-    };
-    public static Comparator<Carro> orderCarrosByano = ( obj1,obj2 )-> {
-        return obj1.getAno().compareTo( obj2.getAno() )  ;
-    };
-    public static Comparator<Carro> orderCarrosByDataDeAquisicao = ( obj1,obj2 )-> {
-        return obj1.getDataDeaquisicao().compareTo( obj2.getDataDeaquisicao() )  ;
-    };
-    public static Comparator<Carro> orderCarrosByCategoria = ( obj1,obj2 )-> {
-        Integer num1 = obj1.getCategoria().ordinal()  ;
-        Integer num2 = obj2.getCategoria().ordinal()  ;
-        return num1.compareTo( num2 )  ;
-    };
-    public static Comparator<Carro> orderCarrosByCor = ( obj1,obj2 )-> {
-        String s1 = obj1.getCor().getRgbCode()  ;
-        String s2 = obj1.getCor().getRgbCode()  ;
-        return s1.compareTo(s2)  ;
-    };
-    //#endregion
     
-    //#region Comparator de cliente 
-    public static Comparator<Cliente> orderClienteByNome = ( obj1,obj2 )-> {
-        String s1 = obj1.getNome();
-        String s2 = obj1.getNome();
-        return s1.compareTo(s2)  ;
-    };
-    public static Comparator<Cliente> orderClienteByEmail = ( obj1,obj2 )-> {
-        String s1 = obj1.getEmail();
-        String s2 = obj1.getEmail();
-        return s1.compareTo(s2)  ;
-    };
-    //#endregion
-
-    //#region Comparator de locacoes 
-    public static Comparator<Locacao> orderlocacaoByDataLocacao = ( obj1,obj2 )-> {
-        return obj1.getDatalocacao().compareTo(obj2.getDatalocacao());
-    };
-
-    public static Comparator<Locacao> orderlocacaoByDataDevolucao = ( obj1,obj2 )-> {
-        return obj1.getDataDevolucao().compareTo(obj2.getDataDevolucao());
-    };
-    public static Comparator<Locacao> orderlocacaoByValor = ( obj1,obj2 )-> {
-        return obj1.getValor().compareTo(obj2.getValor());
-    };
-    
-    //#endregion
 
     //#region listagem de registros
 
